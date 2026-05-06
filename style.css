@@ -892,3 +892,13 @@ body.view-control-buttons .viewControlButton {
   max-width: 90vw;
   word-wrap: break-word;
 }
+
+.video-hotspot img {
+  width: 60px;
+  height: 60px;
+}
+
+.camera-hotspot img {
+  width: 60px;
+  height: 60px;
+}

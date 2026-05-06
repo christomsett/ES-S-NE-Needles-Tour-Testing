@@ -843,8 +843,8 @@ body.view-control-buttons .viewControlButton {
   position: fixed;
   bottom: 15px;
   right: 15px;
-  width: 320px;
-  height: 180px;
+  width: 500px;
+  height: 230px;
   z-index: 9998;
   background: #000;
   border-radius: 8px;

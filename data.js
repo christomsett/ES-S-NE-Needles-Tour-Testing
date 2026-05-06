@@ -78,7 +78,7 @@ var APP_DATA = {
           "target": "7-needles-south-facing-cliffs"
         }
       ],
-      "infoHotspots": []
+      "infoHotspots": [],
       "videoHotspots": [
         {
           "yaw": 1.2,
@@ -88,7 +88,6 @@ var APP_DATA = {
           "height": "50vh"
         }
       ],
-      
       "cameraHotspots": [
         {
           "yaw": -1.0,

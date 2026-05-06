@@ -828,3 +828,12 @@ body.view-control-buttons .viewControlButton {
 .viewControlButton-6 {
   margin-left: 105px;
 }
+
+#watermark {
+  position: fixed;     /* stays in place even when rotating */
+  top: 60px;           /* distance from top */
+  right: 20px;         /* distance from right */
+  width: 120px;        /* adjust size */
+  opacity: 0.3;        /* transparency */
+  z-index: 1000;       /* above the pano */
+}

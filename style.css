@@ -836,4 +836,5 @@ body.view-control-buttons .viewControlButton {
   width: 120px;        /* adjust size */
   opacity: 0.3;        /* transparency */
   z-index: 1000;       /* above the pano */
+  pointer-events: auto;/* allows clicking the link */
 }

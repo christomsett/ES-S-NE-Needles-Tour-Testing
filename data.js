@@ -79,6 +79,26 @@ var APP_DATA = {
         }
       ],
       "infoHotspots": []
+      "videoHotspots": [
+        {
+          "yaw": 1.2,
+          "pitch": 0.1,
+          "url": "https://www.youtube.com/watch?v=7vNUVzaKNkA",
+          "width": "90vw",
+          "height": "50vh"
+        }
+      ],
+      
+      "cameraHotspots": [
+        {
+          "yaw": -1.0,
+          "pitch": -0.2,
+          "url": "img/uav-pic.png",
+          "text": "We used UAVs to get data from previously inaccessible areas of the cliff face.",
+          "width": "80vw",
+          "height": "75vh"
+        }
+      ]
     },
     {
       "id": "1-alum-bay-from-the-ground",

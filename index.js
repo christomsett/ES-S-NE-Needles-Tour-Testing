@@ -100,7 +100,7 @@
       scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
     });
 
-    (sceneData.videoHotspots || []).forEach(function (hotspot) {
+    (data.videoHotspots || []).forEach(function (hotspot) {
       var el = createVideoHotspotElement(hotspot);
     
       scene.hotspotContainer().createHotspot(el, {
@@ -109,7 +109,7 @@
       });
     });
     
-    (sceneData.cameraHotspots || []).forEach(function (hotspot) {
+    (data.cameraHotspots || []).forEach(function (hotspot) {
       var el = createCameraHotspotElement(hotspot);
     
       scene.hotspotContainer().createHotspot(el, {

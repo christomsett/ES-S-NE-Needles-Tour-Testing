@@ -142,7 +142,7 @@ var APP_DATA = {
         {
           "yaw": -1.0,
           "pitch": -0.2,
-          "url": "img/uav-pic.jpg",
+          "url": "img/uav-pic.png",
           "text": "UAV surveying along the cliff allowed data capture to previously innaccessible locations to imporve understanding of the site.",
           "width": "40vw",
           "height": "30vh"

@@ -129,6 +129,25 @@ var APP_DATA = {
         }
       ],
       "infoHotspots": []
+      "videoHotspots": [
+        {
+          "yaw": 1.2,
+          "pitch": 0.1,
+          "url": "https://www.youtube.com/watch?v=7vNUVzaKNkA",
+          "width": "50vw",
+          "height": "30vh"
+        }
+      ],
+      "cameraHotspots": [
+        {
+          "yaw": -1.0,
+          "pitch": -0.2,
+          "url": "img/uav-pic.png",
+          "text": "UAV surveying along the cliff allowed data capture to previously innaccessible locations to imporve understanding of the site.",
+          "width": "40vw",
+          "height": "30vh"
+        }
+      ]
     },
     {
       "id": "2-alum-bay-from-the-air",

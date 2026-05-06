@@ -357,6 +357,100 @@
     return wrapper;
   }
 
+  // creates function that enablkes a popup container with dark background and a close button
+  function openPopup(contentElement, width = "80vw", height = "60vh") {
+    var overlay = document.createElement('div');
+    overlay.classList.add('popup-overlay');
+  
+    var container = document.createElement('div');
+    container.classList.add('popup-content');
+  
+    container.style.width = width;
+    container.style.height = height;
+  
+    var closeBtn = document.createElement('div');
+    closeBtn.classList.add('popup-close');
+    closeBtn.innerHTML = '&times;';
+  
+    closeBtn.addEventListener('click', function() {
+      document.body.removeChild(overlay);
+    });
+  
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) {
+        document.body.removeChild(overlay);
+      }
+    });
+  
+    container.appendChild(closeBtn);
+    container.appendChild(contentElement);
+    overlay.appendChild(container);
+  
+    document.body.appendChild(overlay);
+  }
+
+  // Add a video hotspot popup
+  function createVideoHotspotElement(hotspot) {
+    var wrapper = document.createElement('div');
+    wrapper.classList.add('hotspot', 'video-hotspot');
+  
+    var icon = document.createElement('img');
+    icon.src = 'img/video.png';
+    wrapper.appendChild(icon);
+  
+    wrapper.addEventListener('click', function() {
+      var iframe = document.createElement('iframe');
+  
+      var videoId = hotspot.url.split('v=')[1];
+      var embedUrl = "https://www.youtube.com/embed/" + videoId;
+  
+      iframe.src = embedUrl;
+      iframe.allow = "autoplay; encrypted-media";
+      iframe.allowFullscreen = true;
+  
+      openPopup(iframe, hotspot.width || "60vw", hotspot.height || "40vh");
+    });
+  
+    stopTouchAndScrollEventPropagation(wrapper);
+  
+    return wrapper;
+  }  
+
+  // add a camera based image hotspot
+  function createCameraHotspotElement(hotspot) {
+    var wrapper = document.createElement('div');
+    wrapper.classList.add('hotspot', 'camera-hotspot');
+  
+    var icon = document.createElement('img');
+    icon.src = 'img/camera.png';
+    wrapper.appendChild(icon);
+  
+    wrapper.addEventListener('click', function() {
+  
+      var container = document.createElement('div');
+      container.classList.add('popup-media');
+  
+      var img = document.createElement('img');
+      img.src = hotspot.url;
+  
+      container.appendChild(img);
+  
+      // Optional caption
+      if (hotspot.text) {
+        var caption = document.createElement('div');
+        caption.classList.add('popup-caption');
+        caption.innerText = hotspot.text;
+        container.appendChild(caption);
+      }
+  
+      openPopup(container);
+    });
+  
+    stopTouchAndScrollEventPropagation(wrapper);
+  
+    return wrapper;
+  }
+  
   // Prevent touch and scroll events from reaching the parent element.
   function stopTouchAndScrollEventPropagation(element, eventList) {
     var eventList = [ 'touchstart', 'touchmove', 'touchend', 'touchcancel',
@@ -390,3 +484,19 @@
   switchScene(scenes[0]);
 
 })();
+
+(sceneData.videoHotspots || []).forEach(function(hotspot) {
+  var element = createVideoHotspotElement(hotspot);
+  scene.hotspotContainer().createHotspot(element, {
+    yaw: hotspot.yaw,
+    pitch: hotspot.pitch
+  });
+});
+
+(sceneData.cameraHotspots || []).forEach(function(hotspot) {
+  var element = createCameraHotspotElement(hotspot);
+  scene.hotspotContainer().createHotspot(element, {
+    yaw: hotspot.yaw,
+    pitch: hotspot.pitch
+  });
+});

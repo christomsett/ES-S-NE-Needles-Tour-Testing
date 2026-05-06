@@ -100,6 +100,22 @@
       scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
     });
 
+    (sceneData.videoHotspots || []).forEach(function(hotspot) {
+      var element = createVideoHotspotElement(hotspot);
+      scene.hotspotContainer().createHotspot(element, {
+        yaw: hotspot.yaw,
+        pitch: hotspot.pitch
+      });
+    });
+    
+    (sceneData.cameraHotspots || []).forEach(function(hotspot) {
+      var element = createCameraHotspotElement(hotspot);
+      scene.hotspotContainer().createHotspot(element, {
+        yaw: hotspot.yaw,
+        pitch: hotspot.pitch
+      });
+    });
+
     return {
       data: data,
       scene: scene,
@@ -482,21 +498,7 @@
 
   // Display the initial scene.
   switchScene(scenes[0]);
-
+  
 })();
 
-(sceneData.videoHotspots || []).forEach(function(hotspot) {
-  var element = createVideoHotspotElement(hotspot);
-  scene.hotspotContainer().createHotspot(element, {
-    yaw: hotspot.yaw,
-    pitch: hotspot.pitch
-  });
-});
 
-(sceneData.cameraHotspots || []).forEach(function(hotspot) {
-  var element = createCameraHotspotElement(hotspot);
-  scene.hotspotContainer().createHotspot(element, {
-    yaw: hotspot.yaw,
-    pitch: hotspot.pitch
-  });
-});

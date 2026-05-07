@@ -84,6 +84,8 @@ var APP_DATA = {
           "yaw": 1.2,
           "pitch": 0.1,
           "url": "https://www.youtube.com/watch?v=7vNUVzaKNkA",
+          "title": "The Needles Promotional Video"
+          "text": "See a different side to the Needles site"
           "width": "90vw",
           "height": "50vh"
         }
@@ -93,7 +95,8 @@ var APP_DATA = {
           "yaw": -1.0,
           "pitch": -0.2,
           "url": "img/uav-pic.png",
-          "text": "We used UAVs to get data from previously inaccessible areas of the cliff face.",
+          "title": "UAV Surveying"
+          "text": "We used UAVs to get data from previously inaccessible areas of the cliff face, obtaining imagery and laser scanning datasets.",
           "width": "80vw",
           "height": "75vh"
         }

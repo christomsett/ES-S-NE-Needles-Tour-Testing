@@ -662,7 +662,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 
   display: none;
 
-  background: var(--color-panel-bg);
+  background: rgba(30, 30, 30, 0.95);
 
   padding: 10px;
 
@@ -960,15 +960,18 @@ body.view-control-buttons .viewControlButton {
 }
 
 .popup-content {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
 
   max-width: 90vw;
   max-height: 90vh;
 
-  padding: 10px;
+  padding: 12px;
   box-sizing: border-box;
+
+  overflow: hidden; /* IMPORTANT */
+  position: relative;
 }
 
 /* media scales correctly (portrait + landscape) */
@@ -977,10 +980,13 @@ body.view-control-buttons .viewControlButton {
   max-height: 80vh;
   display: block;
 }
+
 .popup-content iframe {
-  width: min(900px, 90vw);
+  width: 100%;
+  max-width: 900px;
+  height: auto;
   aspect-ratio: 16 / 9;
-  border: 0;
+  flex-shrink: 0;
 }
 
 .popup-close {
@@ -990,6 +996,19 @@ body.view-control-buttons .viewControlButton {
   font-size: 24px;
   color: white;
   cursor: pointer;
+}
+
+.popup-media {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.popup-media img {
+  width: 100%;
+  max-width: 900px;
+  max-height: 80vh;
+  object-fit: contain;
 }
 
 /* caption wraps under image */

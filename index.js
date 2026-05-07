@@ -407,77 +407,150 @@
   }
 
   function createVideoHotspotElement(hotspot) {
-    var el = document.createElement('div');
-    el.classList.add('hotspot');
+    wrapper.classList.add('hotspot');
+    wrapper.classList.add('info-hotspot');
+    wrapper.classList.add('media-hotspot');
+  
+    // HEADER
+    var header = document.createElement('div');
+    header.classList.add('info-hotspot-header');
+  
+    var iconWrapper = document.createElement('div');
+    iconWrapper.classList.add('info-hotspot-icon-wrapper');
   
     var icon = document.createElement('img');
     icon.src = 'img/video.png';
-    el.appendChild(icon);
+    icon.classList.add('info-hotspot-icon');
   
-    el.onclick = function () {
-      var iframe = document.createElement('iframe');
+    iconWrapper.appendChild(icon);
   
-      var videoId = hotspot.url.split('v=')[1];
-      iframe.src = "https://www.youtube.com/embed/" + videoId;
-      iframe.allowFullscreen = true;
+    var titleWrapper = document.createElement('div');
+    titleWrapper.classList.add('info-hotspot-title-wrapper');
   
-      openPopup(iframe, hotspot.width || "80vw", hotspot.height || "60vh");
+    var title = document.createElement('div');
+    title.classList.add('info-hotspot-title');
+    title.innerHTML = hotspot.title || 'Video';
+  
+    titleWrapper.appendChild(title);
+  
+    var closeWrapper = document.createElement('div');
+    closeWrapper.classList.add('info-hotspot-close-wrapper');
+  
+    var closeIcon = document.createElement('img');
+    closeIcon.src = 'img/close.png';
+    closeIcon.classList.add('info-hotspot-close-icon');
+  
+    closeWrapper.appendChild(closeIcon);
+  
+    header.appendChild(iconWrapper);
+    header.appendChild(titleWrapper);
+    header.appendChild(closeWrapper);
+  
+    // CONTENT
+    var content = document.createElement('div');
+    content.classList.add('media-hotspot-content');
+  
+    var iframe = document.createElement('iframe');
+  
+    var videoId = hotspot.url.split('v=')[1];
+    iframe.src = 'https://www.youtube.com/embed/' + videoId;
+    iframe.allowFullscreen = true;
+    iframe.classList.add('media-hotspot-video');
+  
+    content.appendChild(iframe);
+  
+    if (hotspot.text) {
+      var text = document.createElement('div');
+      text.classList.add('media-hotspot-text');
+      text.innerHTML = hotspot.text;
+      content.appendChild(text);
+    }
+  
+    wrapper.appendChild(header);
+    wrapper.appendChild(content);
+  
+    var toggle = function() {
+      wrapper.classList.toggle('visible');
     };
   
-    stopTouchAndScrollEventPropagation(el);
-    return el;
+    header.addEventListener('click', toggle);
+  
+    stopTouchAndScrollEventPropagation(wrapper);
+  
+    return wrapper;
   }
 
   function createCameraHotspotElement(hotspot) {
-    var el = document.createElement('div');
-    el.classList.add('hotspot');
+
+    var wrapper = document.createElement('div');
+    wrapper.classList.add('hotspot');
+    wrapper.classList.add('info-hotspot');
+    wrapper.classList.add('media-hotspot');
+  
+    // HEADER
+    var header = document.createElement('div');
+    header.classList.add('info-hotspot-header');
+  
+    var iconWrapper = document.createElement('div');
+    iconWrapper.classList.add('info-hotspot-icon-wrapper');
   
     var icon = document.createElement('img');
     icon.src = 'img/camera.png';
-    el.appendChild(icon);
+    icon.classList.add('info-hotspot-icon');
   
-    el.onclick = function () {
+    iconWrapper.appendChild(icon);
   
-      var wrapper = document.createElement('div');
-      wrapper.classList.add('popup-media');
+    var titleWrapper = document.createElement('div');
+    titleWrapper.classList.add('info-hotspot-title-wrapper');
   
-      var img = document.createElement('img');
-      img.src = hotspot.url;
+    var title = document.createElement('div');
+    title.classList.add('info-hotspot-title');
+    title.innerHTML = hotspot.title || 'Image';
   
-      wrapper.appendChild(img);
+    titleWrapper.appendChild(title);
   
-      if (hotspot.text) {
-        var caption = document.createElement('div');
-        caption.classList.add('popup-caption');
-        caption.innerText = hotspot.text;
-        wrapper.appendChild(caption);
-      }
+    var closeWrapper = document.createElement('div');
+    closeWrapper.classList.add('info-hotspot-close-wrapper');
   
-      openPopup(wrapper, hotspot.width || "80vw", hotspot.height || "70vh");
+    var closeIcon = document.createElement('img');
+    closeIcon.src = 'img/close.png';
+    closeIcon.classList.add('info-hotspot-close-icon');
+  
+    closeWrapper.appendChild(closeIcon);
+  
+    header.appendChild(iconWrapper);
+    header.appendChild(titleWrapper);
+    header.appendChild(closeWrapper);
+  
+    // CONTENT
+    var content = document.createElement('div');
+    content.classList.add('media-hotspot-content');
+  
+    var img = document.createElement('img');
+    img.src = hotspot.url;
+    img.classList.add('media-hotspot-image');
+  
+    content.appendChild(img);
+  
+    if (hotspot.text) {
+      var text = document.createElement('div');
+      text.classList.add('media-hotspot-text');
+      text.innerHTML = hotspot.text;
+      content.appendChild(text);
+    }
+  
+    wrapper.appendChild(header);
+    wrapper.appendChild(content);
+  
+    var toggle = function() {
+      wrapper.classList.toggle('visible');
     };
   
-    stopTouchAndScrollEventPropagation(el);
-    return el;
-  }
+    header.addEventListener('click', toggle);
   
-  // Prevent touch and scroll events from reaching the parent element.
-  function stopTouchAndScrollEventPropagation(element, eventList) {
-    var eventList = [ 'touchstart', 'touchmove', 'touchend', 'touchcancel',
-                      'wheel', 'mousewheel' ];
-    for (var i = 0; i < eventList.length; i++) {
-      element.addEventListener(eventList[i], function(event) {
-        event.stopPropagation();
-      });
-    }
-  }
-
-  function findSceneById(id) {
-    for (var i = 0; i < scenes.length; i++) {
-      if (scenes[i].data.id === id) {
-        return scenes[i];
-      }
-    }
-    return null;
+    stopTouchAndScrollEventPropagation(wrapper);
+  
+    return wrapper;
   }
 
   function findSceneDataById(id) {

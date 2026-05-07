@@ -642,6 +642,74 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
               visibility 0s 0s;
 }
 
+/* =====================================================
+   MEDIA HOTSPOTS (IMAGE + VIDEO)
+===================================================== */
+
+.media-hotspot {
+  width: auto;
+}
+
+.media-hotspot .info-hotspot-header {
+  cursor: pointer;
+}
+
+.media-hotspot-content {
+  display: none;
+
+  background: rgba(40,40,40,0.95);
+
+  width: min(50vw, 900px);
+  max-width: 50vw;
+
+  max-height: 50vh;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding: 12px;
+  box-sizing: border-box;
+
+  border-radius: 0 0 8px 8px;
+}
+
+.media-hotspot.visible .media-hotspot-content {
+  display: block;
+}
+
+.media-hotspot-image {
+  display: block;
+
+  width: auto;
+  max-width: 100%;
+
+  height: auto;
+  max-height: 45vh;
+
+  margin: 0 auto;
+}
+
+.media-hotspot-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+
+  border: 0;
+}
+
+.media-hotspot-text {
+  color: white;
+
+  margin-top: 12px;
+
+  font-size: 14px;
+  line-height: 1.5;
+
+  overflow-wrap: break-word;
+}
+
+
+
+
 /* Info hotspot modal */
 
 .desktop .info-hotspot-modal {
@@ -841,14 +909,20 @@ body.view-control-buttons .viewControlButton {
 
 .embed-box {
   position: fixed;
+
   bottom: 15px;
   right: 15px;
-  width: 500px;
-  height: 230px;
+
+  width: 40vw;
+  height: 25vh;
+
   z-index: 9998;
+
   background: #000;
+
   border-radius: 8px;
   overflow: hidden;
+
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
@@ -911,12 +985,26 @@ body.view-control-buttons .viewControlButton {
   width: 100%;
 }
 
-.video-hotspot img {
-  width: 60px;
-  height: 60px;
+.video-hotspot img,
+.camera-hotspot img {
+  width: 32px;
+  height: 32px;
 }
 
-.camera-hotspot img {
-  width: 60px;
-  height: 60px;
+@media (max-width: 768px) {
+
+  .media-hotspot-content {
+    width: 85vw;
+    max-width: 85vw;
+
+    max-height: 60vh;
+  }
+
+  .embed-box {
+    width: 90vw;
+    height: 28vh;
+
+    right: 5vw;
+    bottom: 10px;
+  }
 }

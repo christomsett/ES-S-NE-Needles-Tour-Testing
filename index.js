@@ -262,6 +262,23 @@
     }
   }
 
+  function stopTouchAndScrollEventPropagation(element, eventList) {
+    var events = eventList || [
+      'touchstart',
+      'touchmove',
+      'touchend',
+      'touchcancel',
+      'wheel',
+      'mousewheel'
+    ];
+  
+    events.forEach(function(event) {
+      element.addEventListener(event, function(event) {
+        event.stopPropagation();
+      });
+    });
+  }
+  
   function createLinkHotspotElement(hotspot) {
 
     // Create wrapper element to hold icon and tooltip.

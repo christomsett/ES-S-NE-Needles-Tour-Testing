@@ -424,9 +424,13 @@
   }
 
   function createVideoHotspotElement(hotspot) {
+
+    var wrapper = document.createElement('div');
+  
     wrapper.classList.add('hotspot');
     wrapper.classList.add('info-hotspot');
     wrapper.classList.add('media-hotspot');
+    wrapper.classList.add('video-hotspot');
   
     // HEADER
     var header = document.createElement('div');
@@ -450,18 +454,8 @@
   
     titleWrapper.appendChild(title);
   
-    var closeWrapper = document.createElement('div');
-    closeWrapper.classList.add('info-hotspot-close-wrapper');
-  
-    var closeIcon = document.createElement('img');
-    closeIcon.src = 'img/close.png';
-    closeIcon.classList.add('info-hotspot-close-icon');
-  
-    closeWrapper.appendChild(closeIcon);
-  
     header.appendChild(iconWrapper);
     header.appendChild(titleWrapper);
-    header.appendChild(closeWrapper);
   
     // CONTENT
     var content = document.createElement('div');
@@ -470,27 +464,42 @@
     var iframe = document.createElement('iframe');
   
     var videoId = hotspot.url.split('v=')[1];
+  
+    // Handles extra URL parameters safely
+    if (videoId.indexOf('&') !== -1) {
+      videoId = videoId.split('&')[0];
+    }
+  
     iframe.src = 'https://www.youtube.com/embed/' + videoId;
+  
     iframe.allowFullscreen = true;
     iframe.classList.add('media-hotspot-video');
   
     content.appendChild(iframe);
   
+    // OPTIONAL TEXT
     if (hotspot.text) {
+  
       var text = document.createElement('div');
+  
       text.classList.add('media-hotspot-text');
+  
       text.innerHTML = hotspot.text;
+  
       content.appendChild(text);
     }
   
     wrapper.appendChild(header);
     wrapper.appendChild(content);
   
-    var toggle = function() {
-      wrapper.classList.toggle('visible');
-    };
+    // TOGGLE OPEN/CLOSE
+    header.addEventListener('click', function(e) {
   
-    header.addEventListener('click', toggle);
+      e.stopPropagation();
+  
+      wrapper.classList.toggle('visible');
+  
+    });
   
     stopTouchAndScrollEventPropagation(wrapper);
   
@@ -500,9 +509,11 @@
   function createCameraHotspotElement(hotspot) {
 
     var wrapper = document.createElement('div');
+  
     wrapper.classList.add('hotspot');
     wrapper.classList.add('info-hotspot');
     wrapper.classList.add('media-hotspot');
+    wrapper.classList.add('camera-hotspot');
   
     // HEADER
     var header = document.createElement('div');
@@ -522,48 +533,49 @@
   
     var title = document.createElement('div');
     title.classList.add('info-hotspot-title');
+  
     title.innerHTML = hotspot.title || 'Image';
   
     titleWrapper.appendChild(title);
   
-    var closeWrapper = document.createElement('div');
-    closeWrapper.classList.add('info-hotspot-close-wrapper');
-  
-    var closeIcon = document.createElement('img');
-    closeIcon.src = 'img/close.png';
-    closeIcon.classList.add('info-hotspot-close-icon');
-  
-    closeWrapper.appendChild(closeIcon);
-  
     header.appendChild(iconWrapper);
     header.appendChild(titleWrapper);
-    header.appendChild(closeWrapper);
   
     // CONTENT
     var content = document.createElement('div');
     content.classList.add('media-hotspot-content');
   
     var img = document.createElement('img');
+  
     img.src = hotspot.url;
+  
     img.classList.add('media-hotspot-image');
   
     content.appendChild(img);
   
+    // OPTIONAL TEXT
     if (hotspot.text) {
+  
       var text = document.createElement('div');
+  
       text.classList.add('media-hotspot-text');
+  
       text.innerHTML = hotspot.text;
+  
       content.appendChild(text);
     }
   
     wrapper.appendChild(header);
     wrapper.appendChild(content);
   
-    var toggle = function() {
-      wrapper.classList.toggle('visible');
-    };
+    // TOGGLE
+    header.addEventListener('click', function(e) {
   
-    header.addEventListener('click', toggle);
+      e.stopPropagation();
+  
+      wrapper.classList.toggle('visible');
+  
+    });
   
     stopTouchAndScrollEventPropagation(wrapper);
   

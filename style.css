@@ -976,11 +976,11 @@ body.view-control-buttons .viewControlButton {
 
 /* media scales correctly (portrait + landscape) */
 .popup-media img {
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
 
   max-width: 100%;
-  max-height: 70vh;
+  max-height: 100%;
 
   object-fit: contain;
   display: block;
@@ -988,9 +988,8 @@ body.view-control-buttons .viewControlButton {
 
 .popup-content iframe {
   width: 100%;
-  max-width: 900px;
-
-  aspect-ratio: 16 / 9;
+  height: 100%;
+  max-height: 100%;
 
   border: 0;
   display: block;
@@ -1006,15 +1005,16 @@ body.view-control-buttons .viewControlButton {
 }
 
 .popup-media {
-  flex: 1;
+  flex: 1 1 auto;
   min-height: 0;
-  width: 100%;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
   overflow: hidden;
+
+  max-height: 100%;
 }
 
 /* caption wraps under image */

@@ -409,6 +409,7 @@
   function createVideoHotspotElement(hotspot) {
     var el = document.createElement('div');
     el.classList.add('hotspot');
+    el.classList.add('video-hotspot');
   
     var icon = document.createElement('img');
     icon.src = 'img/video.png';
@@ -431,6 +432,7 @@
   function createCameraHotspotElement(hotspot) {
     var el = document.createElement('div');
     el.classList.add('hotspot');
+    el.classList.add('camera-hotspot');
   
     var icon = document.createElement('img');
     icon.src = 'img/camera.png';

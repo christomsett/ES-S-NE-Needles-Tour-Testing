@@ -914,9 +914,13 @@ body.view-control-buttons .viewControlButton {
 .video-hotspot img {
   width: 20px;
   height: 20px;
+  margin-left: -10px;
+  margin-top: -10px;
 }
 
 .camera-hotspot img {
   width: 20px;
   height: 20px;
+  margin-left: -10px;
+  margin-top: -10px;
 }

@@ -113,7 +113,7 @@ var APP_DATA = {
               This area was captured using UAV photogrammetry combined with panoramic ground imagery
               to produce a full 3D spatial dataset of the cliff system.
             </p>
-          '
+          `
         }
       ]
     },

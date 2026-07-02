@@ -96,23 +96,25 @@ var APP_DATA = {
           "text": "We used UAVs to get data from previously inaccessible areas of the cliff face.",
           "width": "80vw",
           "height": "75vh"
-        },
-      "narrative": {
-        "title": "Home Viewpoint Overview",
-        "body": `
-          <h3>Geological Formation</h3>
-          <p>
-            The chalk cliffs at this viewpoint show clear stratification from the Upper Cretaceous period.
-            Long-term coastal erosion has created the visible overhangs and fractures.
-          </p>
-    
-          <h3>Survey & Data Capture</h3>
-          <p>
-            This area was captured using UAV photogrammetry combined with panoramic ground imagery
-            to produce a full 3D spatial dataset of the cliff system.
-          </p>
-        `
-      }
+        }
+      ],
+      "narrative": [
+        {
+          "title": "Home Viewpoint Overview",
+          "body": `
+            <h3>Geological Formation</h3>
+            <p>
+              The chalk cliffs at this viewpoint show clear stratification from the Upper Cretaceous period.
+              Long-term coastal erosion has created the visible overhangs and fractures.
+            </p>
+      
+            <h3>Survey & Data Capture</h3>
+            <p>
+              This area was captured using UAV photogrammetry combined with panoramic ground imagery
+              to produce a full 3D spatial dataset of the cliff system.
+            </p>
+          '
+        }
       ]
     },
     {

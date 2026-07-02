@@ -96,7 +96,7 @@ var APP_DATA = {
           "text": "We used UAVs to get data from previously inaccessible areas of the cliff face.",
           "width": "80vw",
           "height": "75vh"
-        }
+        },
       "narrative": {
         "title": "Home Viewpoint Overview",
         "body": `
@@ -112,6 +112,7 @@ var APP_DATA = {
             to produce a full 3D spatial dataset of the cliff system.
           </p>
         `
+      }
       ]
     },
     {

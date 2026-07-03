@@ -1,66 +1,156 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>IoW Needles 360 Tour</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
-<link rel="stylesheet" href="vendor/reset.min.css">
-<link rel="stylesheet" href="style.css">
+<head>
+  <title>IoW Needles 360 Tour</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="vendor/reset.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="multiple-scenes">
 
 <div id="tourLayout">
 
+  <!-- ========================= -->
   <!-- PANORAMA -->
+  <!-- ========================= -->
+
   <div id="viewerContainer">
+
     <div id="pano"></div>
 
-    <!-- floating info button (mobile + collapsed desktop) -->
-    <button id="infoToggle">☰ Info</button>
+    <!-- Opens the narrative panel -->
+    <button id="infoToggle">
+      ☰ Information
+    </button>
+
   </div>
 
-  <!-- INFO PANEL -->
+
+  <!-- ========================= -->
+  <!-- INFORMATION PANEL -->
+  <!-- ========================= -->
+
   <aside id="infoPanel">
+
     <div id="infoHeader">
-      <h2 id="infoTitle">Tour Info</h2>
-      <button id="infoClose">✕</button>
+
+      <img
+        src="img/Logos.png"
+        alt="University of Southampton"
+        id="panelLogo">
+
+      <div id="panelHeading">
+
+        <h1>IoW Needles 360 Tour</h1>
+
+        <h2 id="infoTitle">
+          Home Viewpoint
+        </h2>
+
+      </div>
+
+      <button id="infoClose">
+        ✕
+      </button>
+
     </div>
 
-    <div id="infoContent"></div>
+    <div id="infoContent">
+      Loading...
+    </div>
+
   </aside>
 
 </div>
 
-<!-- EXISTING UI -->
-<a href="https://www.esas.soton.ac.uk" target="_blank">
-  <img id="watermark" src="img/Logos.png" alt="Logo">
-</a>
+
+
+<!-- ===================================================== -->
+<!-- PIX4D MODEL -->
+<!-- ===================================================== -->
 
 <div class="embed-box">
-  <iframe src="https://cloud.pix4d.com/embed/bim/mesh/2661384?shareToken=a3eaefd736d64b5296e6a4d3b6cfdce9"></iframe>
+
+  <iframe
+    src="https://cloud.pix4d.com/embed/bim/mesh/2661384?shareToken=a3eaefd736d64b5296e6a4d3b6cfdce9"
+    frameborder="0"
+    allowfullscreen>
+
+  </iframe>
+
 </div>
+
+
+
+<!-- ===================================================== -->
+<!-- SCENE LIST -->
+<!-- ===================================================== -->
 
 <div id="sceneList">
+
   <ul class="scenes">
 
-    <a href="javascript:void(0)" class="scene" data-id="0-home-viewpoint"><li class="text">Home-Viewpoint</li></a>
-    <a href="javascript:void(0)" class="scene" data-id="1-alum-bay-from-the-ground"><li class="text">Alum-Bay-From-The-Ground</li></a>
-    <a href="javascript:void(0)" class="scene" data-id="2-alum-bay-from-the-air"><li class="text">Alum-Bay-From-The-Air</li></a>
-    <a href="javascript:void(0)" class="scene" data-id="3-chalk-cliff-overhang"><li class="text">Chalk-Cliff-Overhang</li></a>
-    <a href="javascript:void(0)" class="scene" data-id="4-south-ckliff-from-the-air"><li class="text">South-Ckliff-From-The-Air</li></a>
-    <a href="javascript:void(0)" class="scene" data-id="5-south-cliff-from-the-ground"><li class="text">South-Cliff-From-The-Ground</li></a>
-    <a href="javascript:void(0)" class="scene" data-id="6-the-needles"><li class="text">The-Needles</li></a>
-    <a href="javascript:void(0)" class="scene" data-id="7-needles-south-facing-cliffs"><li class="text">Needles-South-Facing-Cliffs</li></a>
-    <a href="javascript:void(0)" class="scene" data-id="8-the-old-battery-from-the-ground"><li class="text">The-Old-Battery-From-The-Ground</li></a>
+    <a href="javascript:void(0)" class="scene" data-id="0-home-viewpoint">
+      <li class="text">Home Viewpoint</li>
+    </a>
+
+    <a href="javascript:void(0)" class="scene" data-id="1-alum-bay-from-the-ground">
+      <li class="text">Alum Bay From The Ground</li>
+    </a>
+
+    <a href="javascript:void(0)" class="scene" data-id="2-alum-bay-from-the-air">
+      <li class="text">Alum Bay From The Air</li>
+    </a>
+
+    <a href="javascript:void(0)" class="scene" data-id="3-chalk-cliff-overhang">
+      <li class="text">Chalk Cliff Overhang</li>
+    </a>
+
+    <a href="javascript:void(0)" class="scene" data-id="4-south-ckliff-from-the-air">
+      <li class="text">South Cliff From The Air</li>
+    </a>
+
+    <a href="javascript:void(0)" class="scene" data-id="5-south-cliff-from-the-ground">
+      <li class="text">South Cliff From The Ground</li>
+    </a>
+
+    <a href="javascript:void(0)" class="scene" data-id="6-the-needles">
+      <li class="text">The Needles</li>
+    </a>
+
+    <a href="javascript:void(0)" class="scene" data-id="7-needles-south-facing-cliffs">
+      <li class="text">Needles South Facing Cliffs</li>
+    </a>
+
+    <a href="javascript:void(0)" class="scene" data-id="8-the-old-battery-from-the-ground">
+      <li class="text">The Old Battery</li>
+    </a>
 
   </ul>
+
 </div>
+
+
+
+<!-- ===================================================== -->
+<!-- TITLE BAR -->
+<!-- ===================================================== -->
 
 <div id="titleBar">
   <h1 class="sceneName"></h1>
 </div>
+
+
+
+<!-- ===================================================== -->
+<!-- CONTROLS -->
+<!-- ===================================================== -->
 
 <a href="javascript:void(0)" id="autorotateToggle">
   <img class="icon off" src="img/play.png">
@@ -77,13 +167,41 @@
   <img class="icon on" src="img/collapse.png">
 </a>
 
+
+
+<!-- ===================================================== -->
 <!-- VIEW CONTROLS -->
-<a id="viewUp" class="viewControlButton viewControlButton-1"><img src="img/up.png"></a>
-<a id="viewDown" class="viewControlButton viewControlButton-2"><img src="img/down.png"></a>
-<a id="viewLeft" class="viewControlButton viewControlButton-3"><img src="img/left.png"></a>
-<a id="viewRight" class="viewControlButton viewControlButton-4"><img src="img/right.png"></a>
-<a id="viewIn" class="viewControlButton viewControlButton-5"><img src="img/plus.png"></a>
-<a id="viewOut" class="viewControlButton viewControlButton-6"><img src="img/minus.png"></a>
+<!-- ===================================================== -->
+
+<a id="viewUp" class="viewControlButton viewControlButton-1">
+  <img src="img/up.png">
+</a>
+
+<a id="viewDown" class="viewControlButton viewControlButton-2">
+  <img src="img/down.png">
+</a>
+
+<a id="viewLeft" class="viewControlButton viewControlButton-3">
+  <img src="img/left.png">
+</a>
+
+<a id="viewRight" class="viewControlButton viewControlButton-4">
+  <img src="img/right.png">
+</a>
+
+<a id="viewIn" class="viewControlButton viewControlButton-5">
+  <img src="img/plus.png">
+</a>
+
+<a id="viewOut" class="viewControlButton viewControlButton-6">
+  <img src="img/minus.png">
+</a>
+
+
+
+<!-- ===================================================== -->
+<!-- JAVASCRIPT -->
+<!-- ===================================================== -->
 
 <script src="vendor/screenfull.min.js"></script>
 <script src="vendor/bowser.min.js"></script>

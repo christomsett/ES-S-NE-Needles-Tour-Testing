@@ -269,6 +269,7 @@ body.info-collapsed #infoPanel {
    (keep if still used elsewhere)
 ========================= */
 
+/* =========================
 #watermark {
   position: fixed;
   top: 60px;
@@ -280,4 +281,8 @@ body.info-collapsed #infoPanel {
 
   z-index: 1000;
   display: block;
+}
+========================= */
+#watermark {
+  display: none;
 }

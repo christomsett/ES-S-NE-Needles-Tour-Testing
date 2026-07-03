@@ -285,4 +285,15 @@ body.info-collapsed #infoPanel {
 ========================= */
 #watermark {
   display: none;
+
+/* Prevent side panel from affecting global images */
+#infoPanel img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Specifically prevent huge logo scaling inside panel */
+#infoPanel #watermark {
+  display: none !important;
+}
 }

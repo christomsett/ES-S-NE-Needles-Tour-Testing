@@ -273,6 +273,11 @@ body.info-collapsed #infoPanel {
   position: fixed;
   top: 60px;
   right: 20px;
-  width: 30px;
+
+  width: 90px !important;
+  max-width: 90px !important;
+  height: auto !important;
+
   z-index: 1000;
+  display: block;
 }

@@ -322,12 +322,12 @@
     img.src = 'img/video.png';
     el.appendChild(img);
 
-    el.onclick = function () {
+    el.addEventListener('click', function (e) {
       var iframe = document.createElement('iframe');
       var id = h.url.split('v=')[1];
       iframe.src = "https://www.youtube.com/embed/" + id;
-      openPopup(iframe, h.width, h.height);
-    };
+      openPopup(iframe, 'video', e);
+    });
 
     return el;
   }
@@ -340,7 +340,7 @@
     img.src = 'img/camera.png';
     el.appendChild(img);
 
-    el.onclick = function () {
+    el.addEventListener('click', function (e) {
       var wrap = document.createElement('div');
       wrap.className = 'popup-media';
 
@@ -356,18 +356,21 @@
         wrap.appendChild(cap);
       }
 
-      openPopup(wrap, h.width, h.height);
-    };
+      openPopup(wrap, 'photo', e);
+    });
 
     return el;
   }
 
-  function openPopup(content, w, h) {
+  /* Small, hotspot-anchored popup card (stock-Marzipano style) rather
+     than a full-page lightbox. Positioned next to the click point and
+     clamped so it never runs off the edge of the viewer. */
+  function openPopup(content, kind, sourceEvent) {
     var overlay = document.createElement('div');
     overlay.className = 'popup-overlay';
 
     var box = document.createElement('div');
-    box.className = 'popup-content';
+    box.className = 'popup-content popup-' + kind;
 
     var close = document.createElement('div');
     close.className = 'popup-close';
@@ -385,6 +388,32 @@
     };
 
     document.body.appendChild(overlay);
+
+    positionPopup(box, sourceEvent);
+  }
+
+  function positionPopup(box, sourceEvent) {
+    var margin = 12;
+    var anchorX = sourceEvent ? sourceEvent.clientX : window.innerWidth / 2;
+    var anchorY = sourceEvent ? sourceEvent.clientY : window.innerHeight / 2;
+
+    var rect = box.getBoundingClientRect();
+
+    var left = anchorX + 16;
+    var top = anchorY - rect.height / 2;
+
+    // flip to the left of the click point if it would overflow the right edge
+    if (left + rect.width + margin > window.innerWidth) {
+      left = anchorX - rect.width - 16;
+    }
+    // final horizontal clamp
+    left = Math.max(margin, Math.min(left, window.innerWidth - rect.width - margin));
+
+    // vertical clamp
+    top = Math.max(margin, Math.min(top, window.innerHeight - rect.height - margin));
+
+    box.style.left = left + 'px';
+    box.style.top = top + 'px';
   }
 
   function findSceneById(id) {

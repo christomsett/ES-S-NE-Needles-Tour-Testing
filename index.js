@@ -54,6 +54,10 @@
     }
   });
 
+  if (data.settings.autorotateEnabled) {
+    document.getElementById('autorotateToggle').classList.add('enabled');
+  }
+
   /* ---------------- SCENES ---------------- */
 
   var scenes = data.scenes.map(function (sceneData) {
@@ -196,7 +200,7 @@
   }
 
   function sanitize(s) {
-    return s.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
   /* ---------------- RESIZE FIX (IMPORTANT) ---------------- */
@@ -207,41 +211,36 @@
     }, 420);
   }
 
-  /* ---------------- INFO PANEL ---------------- */
+  /* ---------------- INFO PANEL ----------------
+     Scene-specific panel content lives in ONE place: the "narrative"
+     array on each scene object in data.js, e.g.
 
-  var TOUR_INFO = {
-    "0-home-viewpoint": {
-      title: "Home Viewpoint",
-      body: `
-        <h3>Overview</h3>
-        <p>Welcome to the Isle of Wight Needles tour.</p>
+     "narrative": [
+       { "title": "Overview", "body": "<p>...</p>" },
+       { "title": "Geology",  "body": "<p>...</p>" }
+     ]
 
-        <h3>Geology</h3>
-        <p>Chalk cliffs shaped by marine erosion.</p>
-      `
-    },
-
-    "6-the-needles": {
-      title: "The Needles",
-      body: `<p>Iconic chalk stacks formed by coastal erosion.</p>`
-    }
-  };
+     Add/edit that array per scene in data.js - nothing else needs to
+     change here. (Previously this info also lived in a second,
+     hardcoded TOUR_INFO object in this file that only covered 2 of 9
+     scenes and could silently override data.js - that duplicate has
+     been removed.)
+  ------------------------------------------------ */
 
   function updateInfoPanel(id) {
-    var info = TOUR_INFO[id];
+    var scene = findSceneById(id);
+    var narrative = scene && scene.data.narrative;
 
-    if (!info) {
-      infoTitle.textContent = "Tour Info";
-      infoContent.innerHTML = "<p>No information available.</p>";
+    infoTitle.textContent = scene ? scene.data.name.replace(/-/g, ' ') : 'Tour Info';
+
+    if (!narrative || !narrative.length) {
+      infoContent.innerHTML = "<p>No information available for this scene yet.</p>";
       return;
     }
 
-    infoTitle.innerHTML = `
-      <img src="img/Logos.png" class="info-header-logo">
-      ${info.title}
-    `;
-
-    infoContent.innerHTML = info.body;
+    infoContent.innerHTML = narrative.map(function (section) {
+      return '<h3>' + sanitize(section.title) + '</h3>' + section.body;
+    }).join('');
   }
 
   /* ---------------- INFO PANEL UI ---------------- */

@@ -427,7 +427,13 @@ var APP_DATA = {
           "target": "0-home-viewpoint"
         }
       ],
-      "infoHotspots": []
+      "infoHotspots": [],
+      "narrative": [
+        {
+          "title": "Overview",
+          "body": "<p>Iconic chalk stacks formed by coastal erosion.</p>"
+        }
+      ]
     },
     {
       "id": "7-needles-south-facing-cliffs",

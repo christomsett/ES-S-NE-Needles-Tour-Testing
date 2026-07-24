@@ -28,6 +28,11 @@
     <!-- SCENE LIST -->
     <!-- ===================================================== -->
 
+    <a href="javascript:void(0)" id="sceneListToggle">
+      <img class="icon off" src="img/expand.png">
+      <img class="icon on" src="img/collapse.png">
+    </a>
+
     <div id="sceneList">
 
       <ul class="scenes">
@@ -94,11 +99,6 @@
       <img class="icon on" src="img/windowed.png">
     </a>
 
-    <a href="javascript:void(0)" id="sceneListToggle">
-      <img class="icon off" src="img/expand.png">
-      <img class="icon on" src="img/collapse.png">
-    </a>
-
     <!-- ===================================================== -->
     <!-- VIEW CONTROLS -->
     <!-- ===================================================== -->
@@ -143,24 +143,16 @@
 
     <div id="infoHeader">
 
+      <button id="infoClose">
+        ✕
+      </button>
+
       <img
         src="img/Logos.png"
         alt="University of Southampton"
         id="panelLogo">
 
-      <div id="panelHeading">
-
-        <h1>IoW Needles 360 Tour</h1>
-
-        <h2 id="infoTitle">
-          Home Viewpoint
-        </h2>
-
-      </div>
-
-      <button id="infoClose">
-        ✕
-      </button>
+      <h1 id="panelTitle">IoW Needles 360 Tour</h1>
 
     </div>
 

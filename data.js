@@ -112,6 +112,8 @@ var APP_DATA = {
             <p>
               This area was captured using UAV photogrammetry combined with panoramic ground imagery
               to produce a full 3D spatial dataset of the cliff system.
+              Head over to <a class="scene-link" data-target="6-the-needles">The Needles</a> to see
+              one of the results.
             </p>
           `
         }

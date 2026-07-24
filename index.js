@@ -19,7 +19,6 @@
 
   var infoToggle = document.getElementById('infoToggle');
   var infoClose = document.getElementById('infoClose');
-  var infoTitle = document.getElementById('infoTitle');
   var infoContent = document.getElementById('infoContent');
 
   /* ---------------- DEVICE ---------------- */
@@ -225,13 +224,17 @@
      hardcoded TOUR_INFO object in this file that only covered 2 of 9
      scenes and could silently override data.js - that duplicate has
      been removed.)
+
+     To link to another scene from within a narrative body, use:
+       <a class="scene-link" data-target="6-the-needles">The Needles</a>
+     where data-target is the scene's "id" from data.js. Clicking it
+     jumps the main viewer to that scene (handled by the delegated
+     click listener below).
   ------------------------------------------------ */
 
   function updateInfoPanel(id) {
     var scene = findSceneById(id);
     var narrative = scene && scene.data.narrative;
-
-    infoTitle.textContent = scene ? scene.data.name.replace(/-/g, ' ') : 'Tour Info';
 
     if (!narrative || !narrative.length) {
       infoContent.innerHTML = "<p>No information available for this scene yet.</p>";
@@ -242,6 +245,16 @@
       return '<h3>' + sanitize(section.title) + '</h3>' + section.body;
     }).join('');
   }
+
+  infoContent.addEventListener('click', function (e) {
+    var link = e.target.closest('.scene-link');
+    if (!link) return;
+
+    e.preventDefault();
+
+    var target = findSceneById(link.dataset.target);
+    if (target) switchScene(target);
+  });
 
   /* ---------------- INFO PANEL UI ---------------- */
 

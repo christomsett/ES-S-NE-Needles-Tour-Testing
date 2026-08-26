@@ -176,13 +176,12 @@ var APP_DATA = {
       "infoHotspots": [],
       "cameraHotspots": [
         {
-          "yaw": 10,
-          "pitch": 5,
-          "url": "",
+          "yaw": 1.0,
+          "pitch": 0.2,
+          "url": "img/Heritage.png",
           "category": "heritage",
-          "title": "The needles Visitor Attraction",
-          "text": `The centre boasts a number of attractions for visiotrs, including chairlifts 
-            to the beach, a sand shop, and rides.`,
+          "title": "The Needles Visitor Attraction",
+          "text": "The centre boasts a number of attractions for visitors, including chairlifts to the beach, a sand shop, and rides.",
           "width": "80vw",
           "height": "75vh"
         }

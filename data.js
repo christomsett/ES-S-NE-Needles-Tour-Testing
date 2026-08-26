@@ -3,6 +3,7 @@ var APP_DATA = {
     {
       "id": "0-home-viewpoint",
       "name": "Home-Viewpoint",
+      "nextScene": "1-alum-bay-from-the-ground",
       "levels": [
         {
           "tileSize": 256,
@@ -84,6 +85,8 @@ var APP_DATA = {
           "yaw": 1.2,
           "pitch": 0.1,
           "url": "https://www.youtube.com/watch?v=7vNUVzaKNkA",
+          "category": "geology",
+          "title": "Geology",
           "width": "90vw",
           "height": "50vh"
         }
@@ -93,6 +96,8 @@ var APP_DATA = {
           "yaw": -1.0,
           "pitch": -0.2,
           "url": "img/uav-pic.png",
+          "category": "geomorphology",
+          "title": "Survey & Data Capture",
           "text": "We used UAVs to get data from previously inaccessible areas of the cliff face.",
           "width": "80vw",
           "height": "75vh"
@@ -122,6 +127,8 @@ var APP_DATA = {
     {
       "id": "1-alum-bay-from-the-ground",
       "name": "Alum-Bay-From-The-Ground",
+      "previousScene": "0-home-viewpoint",
+      "nextScene": "2-alum-bay-from-the-air",
       "levels": [
         {
           "tileSize": 256,
@@ -172,6 +179,8 @@ var APP_DATA = {
     {
       "id": "2-alum-bay-from-the-air",
       "name": "Alum-Bay-From-The-Air",
+      "previousScene": "1-alum-bay-from-the-ground",
+      "nextScene": "3-chalk-cliff-overhang",
       "levels": [
         {
           "tileSize": 256,
@@ -222,6 +231,8 @@ var APP_DATA = {
     {
       "id": "3-chalk-cliff-overhang",
       "name": "Chalk-Cliff-Overhang",
+      "previousScene": "2-alum-bay-from-the-air",
+      "nextScene": "4-south-ckliff-from-the-air",
       "levels": [
         {
           "tileSize": 256,
@@ -284,6 +295,8 @@ var APP_DATA = {
     {
       "id": "4-south-ckliff-from-the-air",
       "name": "South-Ckliff-From-The-Air",
+      "previousScene": "3-chalk-cliff-overhang",
+      "nextScene": "5-south-cliff-from-the-ground",
       "levels": [
         {
           "tileSize": 256,
@@ -334,6 +347,8 @@ var APP_DATA = {
     {
       "id": "5-south-cliff-from-the-ground",
       "name": "South-Cliff-From-The-Ground",
+      "previousScene": "4-south-ckliff-from-the-air",
+      "nextScene": "6-the-needles",
       "levels": [
         {
           "tileSize": 256,
@@ -378,6 +393,8 @@ var APP_DATA = {
     {
       "id": "6-the-needles",
       "name": "The-Needles",
+      "previousScene": "5-south-cliff-from-the-ground",
+      "nextScene": "7-needles-south-facing-cliffs",
       "levels": [
         {
           "tileSize": 256,
@@ -440,6 +457,8 @@ var APP_DATA = {
     {
       "id": "7-needles-south-facing-cliffs",
       "name": "Needles-South-Facing-Cliffs",
+      "previousScene": "6-the-needles",
+      "nextScene": "8-the-old-battery-from-the-ground",
       "levels": [
         {
           "tileSize": 256,
@@ -502,6 +521,7 @@ var APP_DATA = {
     {
       "id": "8-the-old-battery-from-the-ground",
       "name": "The-Old-Battery-From-The-Ground",
+      "previousScene": "7-needles-south-facing-cliffs",
       "levels": [
         {
           "tileSize": 256,
@@ -561,6 +581,13 @@ var APP_DATA = {
     "mouseViewMode": "drag",
     "autorotateEnabled": true,
     "fullscreenButton": false,
-    "viewControlButtons": false
+    "viewControlButtons": false,
+    "popupCategories": {
+      "geology": "img/Geology.png",
+      "geomorphology": "img/Geomorphology.png",
+      "heritage": "img/Heritage.png",
+      "vegetation": "img/Vegetation.png",
+      "general": "img/Logos.png"
+    }
   }
 };

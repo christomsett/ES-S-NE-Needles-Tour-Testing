@@ -179,10 +179,10 @@ var APP_DATA = {
           "yaw": 10,
           "pitch": 5,
           "url": "",
-          "category": "Heritage",
+          "category": "heritage",
           "title": "The needles Visitor Attraction",
-          "text": 'The centre boasts a number of attractions for visiotrs, including chairlifts 
-            to the beach, a sand shop, and rides.',
+          "text": `The centre boasts a number of attractions for visiotrs, including chairlifts 
+            to the beach, a sand shop, and rides.`,
           "width": "80vw",
           "height": "75vh"
         }

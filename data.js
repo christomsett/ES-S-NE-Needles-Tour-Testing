@@ -174,6 +174,18 @@ var APP_DATA = {
         }
       ],
       "infoHotspots": [],
+      "cameraHotspots": [
+        {
+          "yaw": 0.5,
+          "pitch": 0.5,
+          "url": "img/Heritage.png",
+          "category": "heritage",
+          "title": "The Needles Visitor Attraction",
+          "text": "The centre boasts a number of attractions for visitors, including chairlifts to the beach, a sand shop, and rides.",
+          "width": "80vw",
+          "height": "75vh"
+        }
+      ],
       "narrative": [
         {
           "title": "Geology: Overlooking Alum Bay",

@@ -177,7 +177,7 @@ var APP_DATA = {
       "cameraHotspots": [
         {
           "yaw": 0.7,
-          "pitch": -0.1,
+          "pitch": -1,
           "url": "img/Heritage.png",
           "category": "heritage",
           "title": "The Needles Visitor Attraction",

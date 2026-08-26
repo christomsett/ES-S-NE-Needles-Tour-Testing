@@ -181,8 +181,8 @@ var APP_DATA = {
           "url": "",
           "category": "Heritage",
           "title": "The needles Visitor Attraction",
-          "text": "The centre boasts a number of attractions for visiotrs, including chairlifts 
-            to the beach, a sand shop, and rides.",
+          "text": 'The centre boasts a number of attractions for visiotrs, including chairlifts 
+            to the beach, a sand shop, and rides.',
           "width": "80vw",
           "height": "75vh"
         }
@@ -208,6 +208,7 @@ var APP_DATA = {
               The soft cliffs regularly release fossils onto the beach below making it a popular location for tourists
               to visit year round. The Needles visitor centre even has a chairlift to take you down directly onto the
               beach.
+            </p>
           `
         }
       ]

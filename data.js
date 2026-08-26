@@ -107,19 +107,18 @@ var APP_DATA = {
         {
           "title": "Home Viewpoint Overview",
           "body": `
-            <h3>Geological Formation</h3>
+            <h3>Welcome!</h3>
             <p>
-              The chalk cliffs at this viewpoint show clear stratification from the Upper Cretaceous period.
-              Long-term coastal erosion has created the visible overhangs and fractures.
+              Welcome to the virtual tour at the Isle of Wight Needles site. This is our homepoint location from which you can
+              view and navigate to different areas of the site. Feel free to look around before proceeding onto the first section
+              of the tour: Geology!
             </p>
       
             <h3>Survey & Data Capture</h3>
             <p>
-              This area was captured using UAV photogrammetry combined with panoramic ground imagery
-              to produce a full 3D spatial dataset of the cliff system.
-              Head over to <a class="scene-link" data-target="6-the-needles">The Needles</a> to see
-              one of the results.
-            </p>
+              The 360 imagery captured and used here was part of a wider project by Natural England. Photos from the gorund were
+              obtained using a panoramic phone feature, whereas aerial 360 imagery was captured using a DJI Mavic 3.
+            </p>  
           `
         }
       ]
@@ -174,7 +173,44 @@ var APP_DATA = {
           "target": "8-the-old-battery-from-the-ground"
         }
       ],
-      "infoHotspots": []
+      "infoHotspots": [],
+      "cameraHotspots": [
+        {
+          "yaw": 10,
+          "pitch": 5,
+          "url": "",
+          "category": "Heritage",
+          "title": "The needles Visitor Attraction",
+          "text": "The centre boasts a number of attractions for visiotrs, including chairlifts 
+            to the beach, a sand shop, and rides.",
+          "width": "80vw",
+          "height": "75vh"
+        }
+      ],
+      "narrative": [
+        {
+          "title": "Geology: Overlooking Alum Bay",
+          "body": `
+            <h3>Geological Formation</h3>
+            <p>
+              In contrast to the chalk stacks that form The Needles iconic stature, further along the coastline
+              there is a shift in the geology of the underlying rock, to much softer and more easily eroded mudstone and 
+              sandstones.
+            </p>
+
+            <p>
+              The changes in these rock types lead to a much more mobile landscape, with a series of erosion features present
+              across the area. The steep cliff as you look out over Alum Bay hgihlights this rapid shift in underlying
+              geology, you don't want to get too close to the edge!
+            </p>
+
+            <p>
+              The soft cliffs regularly release fossils onto the beach below making it a popular location for tourists
+              to visit year round. The Needles visitor centre even has a chairlift to take you down directly onto the
+              beach.
+          `
+        }
+      ]
     },
     {
       "id": "2-alum-bay-from-the-air",

@@ -227,6 +227,56 @@ body.info-collapsed #infoPanel {
   border: 0;
 }
 
+/* Narrative previous/next navigation */
+#infoNavigation {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  gap: 10px;
+  padding: 12px 18px 18px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: auto;
+}
+
+.info-nav-button {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 9px 10px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.info-nav-button:hover:not(:disabled) {
+  background: rgba(255,255,255,0.12);
+}
+
+.info-nav-button:disabled,
+.info-nav-button.disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.info-nav-arrow {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.info-nav-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /* =========================
    SCENE LIST (positions relative to #viewerContainer now)
 ========================= */
@@ -471,16 +521,14 @@ body.fullscreen-enabled #fullscreenToggle {
 }
 
 /* video / camera (popup) hotspots */
-.video-hotspot,
-.camera-hotspot {
+.popup-hotspot {
   width: 34px;
   height: 34px;
   margin-left: -17px;
   margin-top: -17px;
 }
 
-.video-hotspot img,
-.camera-hotspot img {
+.popup-hotspot img {
   width: 100%;
   height: 100%;
   display: block;
@@ -502,12 +550,10 @@ body.fullscreen-enabled #fullscreenToggle {
 }
 
 /* =========================
-   POPUP CARD (small, anchored near the hotspot -
-   stock-Marzipano style, not a full-page lightbox)
+   POPUP CARD
+   One consistent popup style for all categories/content types.
 ========================= */
 
-/* Transparent full-viewport catcher, just so a click outside the
-   card closes it - no darkened backdrop */
 .popup-overlay {
   position: fixed;
   inset: 0;
@@ -516,27 +562,41 @@ body.fullscreen-enabled #fullscreenToggle {
 }
 
 .popup-content {
-  position: fixed;   /* left/top set by JS, anchored to the click point */
+  position: fixed;
+  width: 320px;
+  max-width: min(86vw, 420px);
+  max-height: 82vh;
+  overflow: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-
+  align-items: stretch;
   background: rgba(15,20,30,0.96);
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 8px;
   padding: 10px;
-
   box-shadow: 0 8px 24px rgba(0,0,0,0.5);
 }
 
-/* Photo popups: small card, image-sized */
-.popup-content.popup-photo {
-  width: 300px;
+.popup-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 2px 24px 10px 2px;
 }
 
-/* Video popups: a little wider to keep the embed watchable */
-.popup-content.popup-video {
-  width: 360px;
+.popup-category-image {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  flex: 0 0 42px;
+  border-radius: 4px;
+}
+
+.popup-title {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
 }
 
 .popup-close {
@@ -558,7 +618,11 @@ body.fullscreen-enabled #fullscreenToggle {
   z-index: 1;
 }
 
-.popup-media img {
+.popup-body {
+  width: 100%;
+}
+
+.popup-body img {
   width: 100%;
   max-height: 60vh;
   object-fit: contain;
@@ -569,23 +633,25 @@ body.fullscreen-enabled #fullscreenToggle {
 .popup-caption {
   color: #fff;
   font-size: 13px;
+  line-height: 1.4;
   padding: 8px 2px 0;
-  text-align: center;
+  text-align: left;
 }
 
-.popup-content iframe {
+.popup-body iframe {
   width: 100%;
   aspect-ratio: 16/9;
   border: 0;
   border-radius: 4px;
+  display: block;
 }
 
 @media (max-width: 500px) {
-  .popup-content.popup-photo,
-  .popup-content.popup-video {
+  .popup-content {
     width: min(86vw, 340px);
   }
 }
+
 
 /* =========================
    MOBILE / NARROW VIEWPORT

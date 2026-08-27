@@ -297,7 +297,74 @@ var APP_DATA = {
           "target": "8-the-old-battery-from-the-ground"
         }
       ],
-      "hotspots": []
+      "hotspots": [
+        {
+          "yaw": -0.2,
+          "pitch": -0.1,
+          "category": "geomorphology",
+          "title": "Former activity",
+          "text": "This area shows evidence of prior geomorphic activity (landslips), whereby enough time has passed for the surface to become vegetated once more.",
+          "image": "img/Heritage.png",
+          "width": "80vw",
+          "height": "75vh"
+        },
+        {
+          "yaw": 0.14,
+          "pitch": -0.2,
+          "category": "vegetation",
+          "title": "Cliff vegetation",
+          "text": "More established areas of vegetation, such as this one, will help reduce erosion acrtivity by stabilising the soil through their root structures.",
+          "image": "img/Heritage.png",
+          "width": "80vw",
+          "height": "75vh"
+        },
+        {
+          "yaw": 2.5,
+          "pitch": -0.02,
+          "category": "geology",
+          "title": "Exposed Chalk",
+          "text": "The underlying geology of this cliff section is clearly exposed along this stretch, emphasising the differences geological type has on cliff structure.",
+          "image": "img/Heritage.png",
+          "width": "80vw",
+          "height": "75vh"
+        },
+        {
+          "yaw": 2.36,
+          "pitch": 0.17,
+          "category": "geomorphology",
+          "title": "Landslip",
+          "text": "At the bottom of this cliff face is a small accumulation of material from an erosion event. The force of the sea will eventually reduce this newly formed cliff toe.",
+          "image": "img/Heritage.png",
+          "width": "80vw",
+          "height": "75vh"
+        }
+      ],
+      "narrative": [
+         {
+          "title": "Geology: Alum Bay from the air.",
+          "body": `
+            <p>
+              From this vantage point we get a much clearer look at the geology and processes happening within Alum Bay,
+              as well as looking along the chalk cliffs towards The Needles (our next stop).
+            </p>
+
+            <p>
+              As the headland towards the needles stretches out, we can see a steep sided cliff face with exposed chalk as well as sections with
+              some established vegetation. The morphology (form) of these cliffs differs greatly from those at Alum Bay.
+            </p>
+
+            <p>
+              Alum Bay exhibits a much greatervariability in its morphology, with steep cliff sections, ridges and gulleys, as well as a display of
+              slumps and former landslip events. Contrast between exposed rock and vegetated areas helps us identify the age of different events,
+              and for how long slopes have remained stable for. 
+            </p>
+
+            <p>
+              Have a pan around to see the different aspects of this area, before we move on to the main attraction at this site, The Needles themselves.
+            </p>
+          `
+        }
+      ]
     },
     {
       "id": "3-chalk-cliff-overhang",
@@ -361,74 +428,8 @@ var APP_DATA = {
           "target": "4-south-ckliff-from-the-air"
         }
       ],
-      "hotspots": [
-        {
-          "yaw": -0.2,
-          "pitch": -0.1,
-          "category": "geomorphology",
-          "title": "Former activity",
-          "text": "This area shows evidence of prior geomorphic activity (landslips), whereby enough time has passed for the surface to become vegetated once more.",
-          "image": "img/Heritage.png",
-          "width": "80vw",
-          "height": "75vh"
-        },
-        {
-          "yaw": 0.14,
-          "pitch": -0.2,
-          "category": "vegetation",
-          "title": "Cliff vegetation",
-          "text": "More established areas of vegetation, such as this one, will help reduce erosion acrtivity by stabilising the soil through their root structures.",
-          "image": "img/Heritage.png",
-          "width": "80vw",
-          "height": "75vh"
-        },
-        {
-          "yaw": 2.5,
-          "pitch": -0.02,
-          "category": "geology",
-          "title": "Exposed Chalk",
-          "text": "The underlying geology of this cliff section is clearly exposed along this stretch, emphasising the differences geological type has on cliff structure.",
-          "image": "img/Heritage.png",
-          "width": "80vw",
-          "height": "75vh"
-        },
-        {
-          "yaw": 2.36,
-          "pitch": 0.17,
-          "category": "geomorphology",
-          "title": "Landslip",
-          "text": "At the bottom of this cliff face is a small accumulation of material from an erosion event. The force of the sea will eventually reduce this newly formed cliff toe.",
-          "image": "img/Heritage.png",
-          "width": "80vw",
-          "height": "75vh"
-        }
-      ],
-      "narrative": [
-        {
-          "title": "Geology: Alum Bay from the air.",
-          "body": `
-            <p>
-              From this vantage point we get a much clearer look at the geology and processes happening within Alum Bay,
-              as well as looking along the chalk cliffs towards The Needles (our next stop).
-            </p>
-
-            <p>
-              As the headland towards the needles stretches out, we can see a steep sided cliff face with exposed chalk as well as sections with
-              some established vegetation. The morphology (form) of these cliffs differs greatly from those at Alum Bay.
-            </p>
-
-            <p>
-              Alum Bay exhibits a much greatervariability in its morphology, with steep cliff sections, ridges and gulleys, as well as a display of
-              slumps and former landslip events. Contrast between exposed rock and vegetated areas helps us identify the age of different events,
-              and for how long slopes have remained stable for. 
-            </p>
-
-            <p>
-              Have a pan around to see the different aspects of this area, before we move on to the main attraction at this site, The Needles themselves.
-            </p>
-          `
-        }
-      ]
+      "hotspots": [],
+      "narrative": []
     },
     {
       "id": "4-south-ckliff-from-the-air",

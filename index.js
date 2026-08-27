@@ -23,6 +23,10 @@
   var infoPrevious = document.getElementById('infoPrevious');
   var infoNext = document.getElementById('infoNext');
 
+  var splashScreen = document.getElementById('splashScreen');
+  var splashClose = document.getElementById('splashClose');
+  var splashStart = document.getElementById('splashStart');
+
   /* ---------------- DEVICE ---------------- */
 
   if (window.matchMedia) {
@@ -95,26 +99,22 @@
       );
     });
 
-    (sceneData.videoHotspots || []).forEach(function (h) {
-      scene.hotspotContainer().createHotspot(
-        createVideoHotspotElement(h),
-        { yaw: h.yaw, pitch: h.pitch }
-      );
-    });
-
-    (sceneData.cameraHotspots || []).forEach(function (h) {
-      scene.hotspotContainer().createHotspot(
-        createCameraHotspotElement(h),
-        { yaw: h.yaw, pitch: h.pitch }
-      );
-    });
-
-    (sceneData.popupHotspots || []).forEach(function (h) {
-      scene.hotspotContainer().createHotspot(
-        createPopupHotspotElement(h),
-        { yaw: h.yaw, pitch: h.pitch }
-      );
-    });
+    // Single unified hotspot type: video / image / plain-text info are all
+    // just optional fields on the same object (see createHotspotElement).
+    // Legacy arrays (videoHotspots / cameraHotspots / popupHotspots /
+    // infoHotspots) are still read here too, so older data.js files keep
+    // working, but new scenes should just use "hotspots".
+    (sceneData.hotspots || [])
+      .concat(sceneData.videoHotspots || [])
+      .concat(sceneData.cameraHotspots || [])
+      .concat(sceneData.popupHotspots || [])
+      .concat(sceneData.infoHotspots || [])
+      .forEach(function (h) {
+        scene.hotspotContainer().createHotspot(
+          createHotspotElement(h),
+          { yaw: h.yaw, pitch: h.pitch }
+        );
+      });
 
     return {
       data: sceneData,
@@ -259,19 +259,34 @@
   }
 
   function updateInfoNavigation(scene) {
-    function configure(button, targetId, label) {
+    // "subtitleField" (e.g. scene.data.nextSceneSubtitle) is a manually
+    // written note about what's coming up, set per scene in data.js - it
+    // is NOT auto-generated from the target scene's own name/narrative.
+    function configure(button, targetId, label, subtitleText) {
       if (!button) return;
       var target = targetId ? findSceneById(targetId) : null;
+      var subtitleEl = button.querySelector('.info-nav-subtitle');
+
       button.disabled = !target;
       button.classList.toggle('disabled', !target);
-      button.setAttribute('aria-label', target ? label + ': ' + target.data.name : label);
+
+      var ariaLabel = label;
+      if (target) ariaLabel += ': ' + (subtitleText || target.data.name);
+      button.setAttribute('aria-label', ariaLabel);
+
       button.onclick = target ? function () {
         switchScene(target);
       } : null;
+
+      if (subtitleEl) {
+        var text = target ? (subtitleText || '') : '';
+        subtitleEl.textContent = text;
+        subtitleEl.classList.toggle('empty', !text);
+      }
     }
 
-    configure(infoPrevious, scene.data.previousScene, 'Previous');
-    configure(infoNext, scene.data.nextScene, 'Next');
+    configure(infoPrevious, scene.data.previousScene, 'Previous', scene.data.previousSceneSubtitle);
+    configure(infoNext, scene.data.nextScene, 'Next', scene.data.nextSceneSubtitle);
   }
 
   infoContent.addEventListener('click', function (e) {
@@ -355,7 +370,18 @@
     return el;
   }
 
-  function createPopupHotspotElement(h) {
+  /* ---------------- HOTSPOTS (unified) ----------------
+     One style covers every marker: video, image, and plain-text
+     "info" hotspots. Each entry in a scene's "hotspots" array can
+     optionally include "video" (a YouTube URL) and/or "image" (a
+     path to a picture) - both are optional. With neither, it's just
+     a text info hotspot using "text". The icon shown on the panorama
+     is always driven by "category" (via settings.popupCategories in
+     data.js, or "hotspotIcon" to override it directly), so new
+     categories can be added there without touching this file.
+  ------------------------------------------------ */
+
+  function createHotspotElement(h) {
     var el = document.createElement('div');
     el.className = 'hotspot popup-hotspot';
 
@@ -365,44 +391,7 @@
     el.appendChild(img);
 
     el.addEventListener('click', function (e) {
-      openPopup(createPopupBody(h), h.category, sourceTitle(h), e);
-    });
-
-    return el;
-  }
-
-  function createVideoHotspotElement(h) {
-    var el = document.createElement('div');
-    el.className = 'hotspot popup-hotspot';
-
-    var img = document.createElement('img');
-    img.src = h.hotspotIcon || getCategoryImage(h.category || 'general');
-    img.alt = h.title || h.category || 'Video';
-    el.appendChild(img);
-
-    el.addEventListener('click', function (e) {
-      var iframe = document.createElement('iframe');
-      var idMatch = h.url && h.url.match(/[?&]v=([^&]+)/);
-      var id = idMatch ? idMatch[1] : '';
-      iframe.src = id ? "https://www.youtube.com/embed/" + id : h.url;
-      iframe.setAttribute('allowfullscreen', '');
-      openPopup(iframe, h.category || 'general', sourceTitle(h), e);
-    });
-
-    return el;
-  }
-
-  function createCameraHotspotElement(h) {
-    var el = document.createElement('div');
-    el.className = 'hotspot popup-hotspot';
-
-    var img = document.createElement('img');
-    img.src = h.hotspotIcon || getCategoryImage(h.category || 'general');
-    img.alt = h.title || h.category || 'Image';
-    el.appendChild(img);
-
-    el.addEventListener('click', function (e) {
-      openPopup(createPopupBody(h), h.category || 'general', sourceTitle(h), e);
+      openPopup(createPopupBody(h), h.category, sourceTitle(h), e, h);
     });
 
     return el;
@@ -412,16 +401,23 @@
     var wrap = document.createElement('div');
     wrap.className = 'popup-body';
 
-    if (h.type === 'video' && h.url) {
+    // Accept the current "video" / "image" fields, and fall back to the
+    // older "url" (+ optional "type: 'video'") field used by earlier
+    // versions of this tour, so previously-written data.js entries still
+    // render correctly.
+    var videoUrl = h.video || (h.type === 'video' ? h.url : null);
+    var imageUrl = h.image || (!videoUrl ? h.url : null);
+
+    if (videoUrl) {
       var iframe = document.createElement('iframe');
-      var idMatch = h.url.match(/[?&]v=([^&]+)/);
+      var idMatch = videoUrl.match(/[?&]v=([^&]+)/) || videoUrl.match(/youtu\.be\/([^?&]+)/);
       var id = idMatch ? idMatch[1] : '';
-      iframe.src = id ? "https://www.youtube.com/embed/" + id : h.url;
+      iframe.src = id ? "https://www.youtube.com/embed/" + id : videoUrl;
       iframe.setAttribute('allowfullscreen', '');
       wrap.appendChild(iframe);
-    } else if (h.url) {
+    } else if (imageUrl) {
       var img = document.createElement('img');
-      img.src = h.url;
+      img.src = imageUrl;
       img.alt = h.title || h.text || '';
       wrap.appendChild(img);
     }
@@ -458,12 +454,23 @@
     return h.title || h.category || 'Information';
   }
 
-  function openPopup(content, category, title, sourceEvent) {
+  function openPopup(content, category, title, sourceEvent, h) {
     var overlay = document.createElement('div');
     overlay.className = 'popup-overlay';
 
     var box = document.createElement('div');
     box.className = 'popup-content';
+
+    // Optional per-hotspot sizing, e.g. "width": "90vw", "height": "50vh"
+    // (also overrides the default max-width/max-height so a deliberately
+    // large popup isn't clipped back down again)
+    if (h && h.width) {
+      box.style.width = h.width;
+      box.style.maxWidth = h.width;
+    }
+    if (h && h.height) {
+      box.style.maxHeight = h.height;
+    }
 
     var close = document.createElement('div');
     close.className = 'popup-close';
@@ -585,8 +592,96 @@
   
   document.body.appendChild(centreDot);
 
+  /* ---------------- SPLASH SCREEN ----------------
+     Shown once over the top of the tour on startup. All of its
+     content comes from data.settings.splash in data.js - edit that
+     object to change the welcome message, the two images, and the
+     credits text. Set data.settings.splash.enabled to false to turn
+     it off entirely.
+  ------------------------------------------------ */
+
+  function setupSplashScreen() {
+    var splash = (data.settings && data.settings.splash) || {};
+
+    if (!splashScreen || splash.enabled === false) {
+      if (splashScreen) splashScreen.remove();
+      return;
+    }
+
+    setText('splashHeading', splash.welcomeHeading);
+    setHtml('splashBody', splash.welcomeBody);
+    setImage('splashNavigation', 'splashNavigationImage',
+      splash.navigationImage, splash.navigationImageAlt);
+
+    setText('splashCreditsHeading', splash.creditsHeading);
+    setHtml('splashCreditsBody', splash.creditsBody);
+    setImage('splashCredits', 'splashCreditsImage',
+      splash.creditsImage, splash.creditsImageAlt);
+
+    var startButton = document.getElementById('splashStart');
+    if (startButton) startButton.textContent = splash.buttonLabel || 'Start Tour';
+
+    document.body.classList.add('splash-open');
+
+    function closeSplash() {
+      document.body.classList.remove('splash-open');
+      document.body.classList.add('splash-closed');
+    }
+
+    if (splashClose) splashClose.addEventListener('click', closeSplash);
+    if (splashStart) splashStart.addEventListener('click', closeSplash);
+  }
+
+  function setText(id, value) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    if (value) {
+      el.textContent = value;
+      el.hidden = false;
+    } else {
+      el.hidden = true;
+    }
+  }
+
+  // Trusted content only: these values come from data.js (authored by the
+  // site owner), the same way scene "narrative" bodies already do.
+  function setHtml(id, value) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    if (value) {
+      el.innerHTML = value;
+      el.hidden = false;
+    } else {
+      el.hidden = true;
+    }
+  }
+
+  // Hides the whole containing section (not just the <img>) whenever no
+  // image path is configured, or if the configured image fails to load -
+  // so an unset/incorrect path never leaves a broken-image icon on screen.
+  function setImage(sectionId, imgId, src, alt) {
+    var section = document.getElementById(sectionId);
+    var img = document.getElementById(imgId);
+    if (!img) return;
+
+    if (!src) {
+      if (section) section.hidden = true;
+      return;
+    }
+
+    img.onerror = function () {
+      if (section) section.hidden = true;
+    };
+    img.onload = function () {
+      if (section) section.hidden = false;
+    };
+    img.alt = alt || '';
+    img.src = src;
+  }
+
   /* ---------------- INIT ---------------- */
 
+  setupSplashScreen();
   switchScene(scenes[0]);
 
 })();

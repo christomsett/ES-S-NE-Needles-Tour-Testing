@@ -567,6 +567,24 @@
   
   setInterval(updateCoordinates, 100);
 
+  /* ---------------- CENTRE ALIGNMENT DOT ---------------- */
+
+  var centreDot = document.createElement('div');
+  centreDot.id = 'centreAlignmentDot';
+  
+  centreDot.style.position = 'fixed';
+  centreDot.style.left = '50%';
+  centreDot.style.top = '50%';
+  centreDot.style.width = '8px';
+  centreDot.style.height = '8px';
+  centreDot.style.background = 'red';
+  centreDot.style.borderRadius = '50%';
+  centreDot.style.transform = 'translate(-50%, -50%)';
+  centreDot.style.zIndex = '9998';
+  centreDot.style.pointerEvents = 'none';
+  
+  document.body.appendChild(centreDot);
+
   /* ---------------- INIT ---------------- */
 
   switchScene(scenes[0]);

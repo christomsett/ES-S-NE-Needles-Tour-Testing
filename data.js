@@ -87,8 +87,6 @@ var APP_DATA = {
           "category": "geology",
           "title": "Geology",
           "video": "https://www.youtube.com/watch?v=7vNUVzaKNkA",
-          "width": "90vw",
-          "height": "50vh"
         },
         {
           "yaw": -1.0,
@@ -97,8 +95,6 @@ var APP_DATA = {
           "title": "Survey & Data Capture",
           "text": "We used UAVs to get data from previously inaccessible areas of the cliff face.",
           "image": "img/uav-pic.png",
-          "width": "80vw",
-          "height": "75vh"
         }
       ],
       "narrative": [
@@ -181,8 +177,6 @@ var APP_DATA = {
           "title": "Cliff vegetation",
           "text": "The cliff tops along the chalk headland are mainly covered in grasses of different varieties.",
           "image": "",
-          "width": "80vw",
-          "height": "75vh"
         },
         {
           "yaw": -0.09,
@@ -191,8 +185,6 @@ var APP_DATA = {
           "title": "The mainland",
           "text": "Unless the rain is falling, you can see across the Solent channel to Milford and Barton on Sea.",
           "image": "",
-          "width": "80vw",
-          "height": "75vh"
         },
         {
           "yaw": 0.57,
@@ -201,8 +193,6 @@ var APP_DATA = {
           "title": "The Needles Visitor Attraction",
           "text": "The centre boasts a number of attractions for visitors, including chairlifts to the beach, a sand shop, and rides.",
           "image": "",
-          "width": "80vw",
-          "height": "75vh"
         },
         {
           "yaw": 1.11,
@@ -211,8 +201,6 @@ var APP_DATA = {
           "title": "Exposed geology",
           "text": "You can clearly see the change in underling geology here, showing sand and mud stones in comparison to the chalk headland.",
           "image": "",
-          "width": "80vw",
-          "height": "75vh"
         }
       ],
       "narrative": [
@@ -305,8 +293,6 @@ var APP_DATA = {
           "title": "Former activity",
           "text": "This area shows evidence of prior geomorphic activity (landslips), whereby enough time has passed for the surface to become vegetated once more.",
           "image": "",
-          "width": "80vw",
-          "height": "75vh"
         },
         {
           "yaw": 0.32,
@@ -315,8 +301,6 @@ var APP_DATA = {
           "title": "Cliff vegetation",
           "text": "More established areas of vegetation, such as this one, will help reduce erosion acrtivity by stabilising the soil through their root structures.",
           "image": "",
-          "width": "80vw",
-          "height": "75vh"
         },
         {
           "yaw": 2.69,
@@ -325,8 +309,6 @@ var APP_DATA = {
           "title": "Exposed Chalk",
           "text": "The underlying geology of this cliff section is clearly exposed along this stretch, emphasising the differences geological type has on cliff structure.",
           "image": "img/Heritage.png",
-          "width": "80vw",
-          "height": "75vh"
         },
         {
           "yaw": 2.59,
@@ -335,8 +317,6 @@ var APP_DATA = {
           "title": "Landslip",
           "text": "At the bottom of this cliff face is a small accumulation of material from an erosion event. The force of the sea will eventually reduce this newly formed cliff toe.",
           "image": "",
-          "width": "80vw",
-          "height": "75vh"
         }
       ],
       "narrative": [

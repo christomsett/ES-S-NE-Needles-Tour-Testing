@@ -178,7 +178,7 @@ var APP_DATA = {
         {
           "yaw": 0.57,
           "pitch": 0.04,
-          "img": "img/Heritage.png"
+          "img": "img/Heritage.png",
           "category": "heritage",
           "title": "The Needles Visitor Attraction",
           "text": "The centre boasts a number of attractions for visitors, including chairlifts to the beach, a sand shop, and rides.",

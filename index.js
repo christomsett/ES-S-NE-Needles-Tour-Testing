@@ -559,14 +559,10 @@
   
     var params = currentScene.view.parameters();
   
-    var yaw = params.yaw * 180 / Math.PI;
-    var pitch = params.pitch * 180 / Math.PI;
-    var fov = params.fov * 180 / Math.PI;
-  
     coordsDisplay.innerHTML =
-      'Yaw: ' + yaw.toFixed(2) + '°<br>' +
-      'Pitch: ' + pitch.toFixed(2) + '°<br>' +
-      'FOV: ' + fov.toFixed(2) + '°';
+      'Yaw: ' + params.yaw.toFixed(5) + ' rad<br>' +
+      'Pitch: ' + params.pitch.toFixed(5) + ' rad<br>' +
+      'FOV: ' + params.fov.toFixed(5) + ' rad';
   }
   
   setInterval(updateCoordinates, 100);

@@ -126,6 +126,7 @@ var APP_DATA = {
       "name": "Alum-Bay-From-The-Ground",
       "previousScene": "0-home-viewpoint",
       "nextScene": "2-alum-bay-from-the-air",
+      "previousSceneSubtitle": "Home",
       "nextSceneSubtitle": "Geology: Continued",
       "levels": [
         {
@@ -235,6 +236,10 @@ var APP_DATA = {
               The soft cliffs regularly release fossils onto the beach below making it a popular location for tourists
               to visit year round. The Needles visitor centre even has a chairlift to take you down directly onto the
               beach.
+            </p>
+
+            <p>
+              Continue on to view Alum Bay from the air, highlighting some of the geomorphology in action.
             </p>
           `
         }

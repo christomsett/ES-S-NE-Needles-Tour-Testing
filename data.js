@@ -180,7 +180,7 @@ var APP_DATA = {
           "category": "vegetation",
           "title": "Cliff vegetation",
           "text": "The cliff tops along the chalk headland are mainly covered in grasses of different varieties.",
-          "image": "img/Heritage.png",
+          "image": "",
           "width": "80vw",
           "height": "75vh"
         },
@@ -190,7 +190,7 @@ var APP_DATA = {
           "category": "heritage",
           "title": "The mainland",
           "text": "Unless the rain is falling, you can see across the Solent channel to Milford and Barton on Sea.",
-          "image": "img/Heritage.png",
+          "image": "",
           "width": "80vw",
           "height": "75vh"
         },
@@ -200,7 +200,7 @@ var APP_DATA = {
           "category": "heritage",
           "title": "The Needles Visitor Attraction",
           "text": "The centre boasts a number of attractions for visitors, including chairlifts to the beach, a sand shop, and rides.",
-          "image": "img/Heritage.png",
+          "image": "",
           "width": "80vw",
           "height": "75vh"
         },
@@ -210,7 +210,7 @@ var APP_DATA = {
           "category": "geology",
           "title": "Exposed geology",
           "text": "You can clearly see the change in underling geology here, showing sand and mud stones in comparison to the chalk headland.",
-          "image": "img/Heritage.png",
+          "image": "",
           "width": "80vw",
           "height": "75vh"
         }
@@ -304,7 +304,7 @@ var APP_DATA = {
           "category": "geomorphology",
           "title": "Former activity",
           "text": "This area shows evidence of prior geomorphic activity (landslips), whereby enough time has passed for the surface to become vegetated once more.",
-          "image": "img/Heritage.png",
+          "image": "",
           "width": "80vw",
           "height": "75vh"
         },
@@ -314,7 +314,7 @@ var APP_DATA = {
           "category": "vegetation",
           "title": "Cliff vegetation",
           "text": "More established areas of vegetation, such as this one, will help reduce erosion acrtivity by stabilising the soil through their root structures.",
-          "image": "img/Heritage.png",
+          "image": "",
           "width": "80vw",
           "height": "75vh"
         },
@@ -334,7 +334,7 @@ var APP_DATA = {
           "category": "geomorphology",
           "title": "Landslip",
           "text": "At the bottom of this cliff face is a small accumulation of material from an erosion event. The force of the sea will eventually reduce this newly formed cliff toe.",
-          "image": "img/Heritage.png",
+          "image": "",
           "width": "80vw",
           "height": "75vh"
         }

@@ -532,6 +532,45 @@
     });
   }
 
+  /* ---------------- DEBUG COORDINATES ---------------- */
+
+  var coordsDisplay = document.createElement('div');
+  coordsDisplay.id = 'coordsDisplay';
+  
+  coordsDisplay.style.position = 'fixed';
+  coordsDisplay.style.bottom = '10px';
+  coordsDisplay.style.left = '10px';
+  coordsDisplay.style.zIndex = '9999';
+  coordsDisplay.style.background = 'rgba(0,0,0,0.7)';
+  coordsDisplay.style.color = '#fff';
+  coordsDisplay.style.padding = '8px 10px';
+  coordsDisplay.style.fontFamily = 'monospace';
+  coordsDisplay.style.fontSize = '13px';
+  coordsDisplay.style.pointerEvents = 'none';
+  
+  document.body.appendChild(coordsDisplay);
+  
+  function updateCoordinates() {
+    var currentScene = scenes.find(function (s) {
+      return s.scene === viewer.scene();
+    });
+  
+    if (!currentScene) return;
+  
+    var params = currentScene.view.parameters();
+  
+    var yaw = params.yaw * 180 / Math.PI;
+    var pitch = params.pitch * 180 / Math.PI;
+    var fov = params.fov * 180 / Math.PI;
+  
+    coordsDisplay.innerHTML =
+      'Yaw: ' + yaw.toFixed(2) + '°<br>' +
+      'Pitch: ' + pitch.toFixed(2) + '°<br>' +
+      'FOV: ' + fov.toFixed(2) + '°';
+  }
+  
+  setInterval(updateCoordinates, 100);
+
   /* ---------------- INIT ---------------- */
 
   switchScene(scenes[0]);

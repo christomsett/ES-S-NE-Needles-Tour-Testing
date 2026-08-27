@@ -599,10 +599,13 @@ body.fullscreen-enabled #fullscreenToggle {
 
 .popup-content {
   position: fixed;
-  width: 320px;
-  max-width: min(86vw, 420px);
-  max-height: 82vh;
-  overflow: auto;
+  /* Let the box size itself according to its contents */
+  width: fit-content;
+  max-width: min(86vw, 440px);
+  /* Let the content determine the height */
+  height: auto;
+  max-height: 90vh;
+  overflow: visible;
   display: flex;
   flex-direction: column;
   align-items: stretch;

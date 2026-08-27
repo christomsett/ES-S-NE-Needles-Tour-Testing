@@ -126,7 +126,7 @@ var APP_DATA = {
       "name": "Alum-Bay-From-The-Ground",
       "previousScene": "0-home-viewpoint",
       "nextScene": "2-alum-bay-from-the-air",
-      "nextSceneSubtitle": "Geology continued",
+      "nextSceneSubtitle": "Geology: Continued",
       "levels": [
         {
           "tileSize": 256,
@@ -175,10 +175,40 @@ var APP_DATA = {
       "hotspots": [
         {
           "yaw": 0.57,
-          "pitch": 0.04,
+          "pitch": -0.04,
+          "category": "vegetation",
+          "title": "Cliff vegetation",
+          "text": "The cliff tops along the chalk headland are mainly covered in grasses of different varieties.",
+          "image": "img/Heritage.png",
+          "width": "80vw",
+          "height": "75vh"
+        },
+        {
+          "yaw": -0.09,
+          "pitch": -0.03,
+          "category": "heritage",
+          "title": "The mainland",
+          "text": "Unless the rain is falling, you can see across the Solent channel to Milford and Barton on Sea.",
+          "image": "img/Heritage.png",
+          "width": "80vw",
+          "height": "75vh"
+        },
+        {
+          "yaw": -3,
+          "pitch": -0.04,
           "category": "heritage",
           "title": "The Needles Visitor Attraction",
           "text": "The centre boasts a number of attractions for visitors, including chairlifts to the beach, a sand shop, and rides.",
+          "image": "img/Heritage.png",
+          "width": "80vw",
+          "height": "75vh"
+        },
+        {
+          "yaw": 1.11,
+          "pitch": 0.02,
+          "category": "geology",
+          "title": "Exposed geology",
+          "text": "You can clearly see the change in underling geology here, showing sand and mud stones in comparison to the chalk headland.",
           "image": "img/Heritage.png",
           "width": "80vw",
           "height": "75vh"

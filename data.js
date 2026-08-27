@@ -299,7 +299,7 @@ var APP_DATA = {
       ],
       "hotspots": [
         {
-          "yaw": -0.2,
+          "yaw": -0.09,
           "pitch": -0.1,
           "category": "geomorphology",
           "title": "Former activity",
@@ -309,7 +309,7 @@ var APP_DATA = {
           "height": "75vh"
         },
         {
-          "yaw": 0.14,
+          "yaw": 0.32,
           "pitch": -0.2,
           "category": "vegetation",
           "title": "Cliff vegetation",
@@ -319,7 +319,7 @@ var APP_DATA = {
           "height": "75vh"
         },
         {
-          "yaw": 2.5,
+          "yaw": 2.69,
           "pitch": -0.02,
           "category": "geology",
           "title": "Exposed Chalk",
@@ -329,7 +329,7 @@ var APP_DATA = {
           "height": "75vh"
         },
         {
-          "yaw": 2.36,
+          "yaw": 2.59,
           "pitch": 0.17,
           "category": "geomorphology",
           "title": "Landslip",
@@ -754,14 +754,14 @@ var APP_DATA = {
     "splash": {
       "enabled": true,
       "welcomeHeading": "Welcome to the Needles 360 Tour",
-      "welcomeBody": "<p>Explore the Isle of Wight Needles site in 360&deg;. Drag to look around, use the arrow icons to move between viewpoints, and click the coloured icons to open photos, videos and background information as you go.</p>",
+      "welcomeBody": "<p>Explore the Isle of Wight Needles site in 360&deg;. Use the information panel on the right to take a guided tour, or just pan and zoom to have a look around, use the arrow icons to move between scenes acorss the headland, and click the coloured icons to open popus containing photos, videos, and extra background information as you go.</p>",
       "navigationImage": "",
       "navigationImageAlt": "How to navigate the tour",
       "creditsHeading": "Content & Funding",
-      "creditsBody": "<p>This tour was produced by the University of Southampton in partnership with Natural England.</p>",
+      "creditsBody": "<p>This tour was produced by Environmental Sensing at The University of Southampton (ES@S) and the GeoData Institute in partnership with Natural England. Thanks to the National Trust for letting us access thier land for collecting the data.</p>",
       "creditsImage": "img/Logos.png",
       "creditsImageAlt": "Project partner and funder logos",
-      "buttonLabel": "Start Tour"
+      "buttonLabel": "Begin the Tour!"
     }
   }
 };

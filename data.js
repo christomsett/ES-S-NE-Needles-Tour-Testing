@@ -174,8 +174,8 @@ var APP_DATA = {
       ],
       "hotspots": [
         {
-          "yaw": 0.57,
-          "pitch": -0.04,
+          "yaw": 3,
+          "pitch": -0.03,
           "category": "vegetation",
           "title": "Cliff vegetation",
           "text": "The cliff tops along the chalk headland are mainly covered in grasses of different varieties.",
@@ -194,8 +194,8 @@ var APP_DATA = {
           "height": "75vh"
         },
         {
-          "yaw": -3,
-          "pitch": -0.04,
+          "yaw": 0.57,
+          "pitch": 0.05,
           "category": "heritage",
           "title": "The Needles Visitor Attraction",
           "text": "The centre boasts a number of attractions for visitors, including chairlifts to the beach, a sand shop, and rides.",
@@ -205,7 +205,7 @@ var APP_DATA = {
         },
         {
           "yaw": 1.11,
-          "pitch": 0.02,
+          "pitch": 0.12,
           "category": "geology",
           "title": "Exposed geology",
           "text": "You can clearly see the change in underling geology here, showing sand and mud stones in comparison to the chalk headland.",

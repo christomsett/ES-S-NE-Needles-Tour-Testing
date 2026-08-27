@@ -57,8 +57,12 @@ html, body {
   background: rgba(15,20,30,0.92);
   backdrop-filter: blur(10px);
 
-  overflow-y: auto;
-  overflow-x: hidden;
+  /* Header / scrollable content / nav footer stacked as three regions,
+     so the nav footer sits BELOW the content in normal flow and never
+     overlaps it - only #infoContent scrolls internally. */
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 
   z-index: 10;
   border-left: 1px solid rgba(255,255,255,0.08);
@@ -84,6 +88,7 @@ body.info-collapsed #infoPanel {
 
 #infoHeader {
   position: relative;
+  flex: 0 0 auto;
 
   display: flex;
   flex-direction: column;
@@ -125,6 +130,10 @@ body.info-collapsed #infoPanel {
 ========================= */
 
 #infoContent {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
   padding: 15px;
   line-height: 1.6;
 }
@@ -227,16 +236,17 @@ body.info-collapsed #infoPanel {
   border: 0;
 }
 
-/* Narrative previous/next navigation */
+/* Narrative previous/next navigation - sits below the scrollable
+   #infoContent as a normal flex-column footer, so it can never
+   overlap the text scrolling above it. */
 #infoNavigation {
-  position: sticky;
-  bottom: 0;
+  flex: 0 0 auto;
   z-index: 2;
   display: flex;
   gap: 10px;
   padding: 12px 18px 18px;
   border-top: 1px solid rgba(255,255,255,0.1);
-  margin-top: auto;
+  background: rgba(15,20,30,0.92);
 }
 
 .info-nav-button {

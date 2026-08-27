@@ -14,6 +14,39 @@
 
 <body class="multiple-scenes">
 
+<!-- ===================================================== -->
+<!-- SPLASH SCREEN (shown once on startup) -->
+<!-- ===================================================== -->
+
+<div id="splashScreen">
+  <div id="splashCard">
+
+    <button id="splashClose" type="button" aria-label="Close">✕</button>
+
+    <div id="splashScroll">
+
+      <section id="splashWelcome">
+        <h1 id="splashHeading"></h1>
+        <div id="splashBody"></div>
+      </section>
+
+      <section id="splashNavigation">
+        <img id="splashNavigationImage" src="" alt="">
+      </section>
+
+      <section id="splashCredits">
+        <h2 id="splashCreditsHeading"></h2>
+        <div id="splashCreditsBody"></div>
+        <img id="splashCreditsImage" src="" alt="">
+      </section>
+
+    </div>
+
+    <button id="splashStart" type="button"></button>
+
+  </div>
+</div>
+
 <div id="tourLayout">
 
   <!-- ========================= -->
@@ -163,11 +196,17 @@
     <div id="infoNavigation" aria-label="Narrative scene navigation">
       <button id="infoPrevious" class="info-nav-button" type="button" aria-label="Previous scene">
         <span class="info-nav-arrow">←</span>
-        <span class="info-nav-label">Previous</span>
+        <span class="info-nav-text">
+          <span class="info-nav-label">Previous</span>
+          <span class="info-nav-subtitle"></span>
+        </span>
       </button>
 
       <button id="infoNext" class="info-nav-button" type="button" aria-label="Next scene">
-        <span class="info-nav-label">Next</span>
+        <span class="info-nav-text">
+          <span class="info-nav-label">Next</span>
+          <span class="info-nav-subtitle"></span>
+        </span>
         <span class="info-nav-arrow">→</span>
       </button>
     </div>

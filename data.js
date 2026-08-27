@@ -4,6 +4,7 @@ var APP_DATA = {
       "id": "0-home-viewpoint",
       "name": "Home-Viewpoint",
       "nextScene": "1-alum-bay-from-the-ground",
+      "nextSceneSubtitle": "Geology: Alum Bay",
       "levels": [
         {
           "tileSize": 256,
@@ -79,26 +80,23 @@ var APP_DATA = {
           "target": "7-needles-south-facing-cliffs"
         }
       ],
-      "infoHotspots": [],
-      "videoHotspots": [
+      "hotspots": [
         {
           "yaw": 1.2,
           "pitch": 0.1,
-          "url": "https://www.youtube.com/watch?v=7vNUVzaKNkA",
           "category": "geology",
           "title": "Geology",
+          "video": "https://www.youtube.com/watch?v=7vNUVzaKNkA",
           "width": "90vw",
           "height": "50vh"
-        }
-      ],
-      "cameraHotspots": [
+        },
         {
           "yaw": -1.0,
           "pitch": -0.2,
-          "url": "img/uav-pic.png",
           "category": "geomorphology",
           "title": "Survey & Data Capture",
           "text": "We used UAVs to get data from previously inaccessible areas of the cliff face.",
+          "image": "img/uav-pic.png",
           "width": "80vw",
           "height": "75vh"
         }
@@ -128,6 +126,7 @@ var APP_DATA = {
       "name": "Alum-Bay-From-The-Ground",
       "previousScene": "0-home-viewpoint",
       "nextScene": "2-alum-bay-from-the-air",
+      "nextSceneSubtitle": "Geology continued",
       "levels": [
         {
           "tileSize": 256,
@@ -173,15 +172,14 @@ var APP_DATA = {
           "target": "8-the-old-battery-from-the-ground"
         }
       ],
-      "infoHotspots": [],
-      "cameraHotspots": [
+      "hotspots": [
         {
           "yaw": 0.57,
           "pitch": 0.04,
-          "img": "img/Heritage.png",
           "category": "heritage",
           "title": "The Needles Visitor Attraction",
           "text": "The centre boasts a number of attractions for visitors, including chairlifts to the beach, a sand shop, and rides.",
+          "image": "img/Heritage.png",
           "width": "80vw",
           "height": "75vh"
         }
@@ -262,7 +260,7 @@ var APP_DATA = {
           "target": "8-the-old-battery-from-the-ground"
         }
       ],
-      "infoHotspots": []
+      "hotspots": []
     },
     {
       "id": "3-chalk-cliff-overhang",
@@ -326,7 +324,7 @@ var APP_DATA = {
           "target": "4-south-ckliff-from-the-air"
         }
       ],
-      "infoHotspots": []
+      "hotspots": []
     },
     {
       "id": "4-south-ckliff-from-the-air",
@@ -378,7 +376,7 @@ var APP_DATA = {
           "target": "6-the-needles"
         }
       ],
-      "infoHotspots": []
+      "hotspots": []
     },
     {
       "id": "5-south-cliff-from-the-ground",
@@ -424,7 +422,7 @@ var APP_DATA = {
           "target": "0-home-viewpoint"
         }
       ],
-      "infoHotspots": []
+      "hotspots": []
     },
     {
       "id": "6-the-needles",
@@ -482,7 +480,7 @@ var APP_DATA = {
           "target": "0-home-viewpoint"
         }
       ],
-      "infoHotspots": [],
+      "hotspots": [],
       "narrative": [
         {
           "title": "Overview",
@@ -552,7 +550,7 @@ var APP_DATA = {
           "target": "6-the-needles"
         }
       ],
-      "infoHotspots": []
+      "hotspots": []
     },
     {
       "id": "8-the-old-battery-from-the-ground",
@@ -609,7 +607,7 @@ var APP_DATA = {
           "target": "2-alum-bay-from-the-air"
         }
       ],
-      "infoHotspots": []
+      "hotspots": []
     }
   ],
   "name": "Project Title",
@@ -624,6 +622,41 @@ var APP_DATA = {
       "heritage": "img/Heritage.png",
       "vegetation": "img/Vegetation.png",
       "general": "img/Logos.png"
+    },
+
+    /* =========================================================
+       SPLASH SCREEN
+       Shown once, over the top of the tour, when the page first
+       loads. Edit any of the fields below - nothing else needs
+       to change. Set "enabled" to false to switch it off entirely.
+
+       - welcomeHeading / welcomeBody : short welcome message
+       - navigationImage              : large PNG showing people how
+                                         to navigate the tour. Drop your
+                                         file into the img/ folder and
+                                         point this at it, e.g.
+                                         "img/splash-navigation.png"
+       - creditsHeading / creditsBody : short text about who made/
+                                         funded the tour
+       - creditsImage                 : small PNG of contributor /
+                                         funder logos, e.g.
+                                         "img/splash-credits.png"
+                                         (defaults to img/Logos.png
+                                         until you supply your own)
+       - buttonLabel                  : text on the button that
+                                         dismisses the splash screen
+    ========================================================= */
+    "splash": {
+      "enabled": true,
+      "welcomeHeading": "Welcome to the Needles 360 Tour",
+      "welcomeBody": "<p>Explore the Isle of Wight Needles site in 360&deg;. Drag to look around, use the arrow icons to move between viewpoints, and click the coloured icons to open photos, videos and background information as you go.</p>",
+      "navigationImage": "",
+      "navigationImageAlt": "How to navigate the tour",
+      "creditsHeading": "Content & Funding",
+      "creditsBody": "<p>This tour was produced by the University of Southampton in partnership with Natural England.</p>",
+      "creditsImage": "img/Logos.png",
+      "creditsImageAlt": "Project partner and funder logos",
+      "buttonLabel": "Start Tour"
     }
   }
 };

@@ -401,7 +401,7 @@ var APP_DATA = {
           "image": "img/Heritage.png",
           "width": "80vw",
           "height": "75vh"
-        },
+        }
       ],
       "narrative": [
         {

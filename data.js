@@ -323,8 +323,8 @@ var APP_DATA = {
           "pitch": -0.1,
           "category": "geomorphology",
           "title": "Former activity",
-          "text": "This area shows evidence of prior geomorphic activity (landslips), whereby enough time has passed for the surface to become vegetated once more.",
-          "image": "",
+          "text": "This area shows evidence of prior geomorphic activity (landslips), whereby enough time has passed for the surface to become vegetated once more.\nTake a look at the hostorical change in this area over the last 16 years, with red areas showing erosion.",
+          "image": "img/Alum Bay Section_change map.png",
         },
         {
           "yaw": 0.32,
@@ -340,7 +340,7 @@ var APP_DATA = {
           "category": "geology",
           "title": "Exposed Chalk",
           "text": "The underlying geology of this cliff section is clearly exposed along this stretch, emphasising the differences geological type has on cliff structure.",
-          "image": "img/Heritage.png",
+          "image": "",
         },
         {
           "yaw": -0.88,
@@ -592,8 +592,10 @@ var APP_DATA = {
     {
       "id": "6-the-needles",
       "name": "The-Needles",
-      "previousScene": "5-south-cliff-from-the-ground",
-      "nextScene": "7-needles-south-facing-cliffs",
+      "previousScene": "2-alum-bay-from-the-air",
+      "nextScene": "3-chalk-cliff-overhang",
+      "previousSceneSubtitle": "Geology: Previous",
+      "nextSceneSubtitle": "Erosion",
       "levels": [
         {
           "tileSize": 256,
@@ -645,11 +647,73 @@ var APP_DATA = {
           "target": "0-home-viewpoint"
         }
       ],
-      "hotspots": [],
+      "hotspots": [
+        {
+          "yaw": 0.14,
+          "pitch": 0.35,
+          "category": "geology",
+          "title": "Chalk Stacks",
+          "text": "The protruding chalk headland here creates a set of distinctive features, The Needles themselevs, where the chalk geology leaves robust towers in place.",
+          "image": "",
+        },
+        {
+          "yaw": -0.65,
+          "pitch": 0.02,
+          "category": "heritage",
+          "title": "The Needles Lighthouse",
+          "text": "This 30m high landmark was completed in 1859, and was automated in 1994 ending the long history of having light house keepers on site. The light form the tower can be seen up to 14 miles away!",
+          "image": "",
+        },
+        {
+          "yaw": 2.25,
+          "pitch": 0.39,
+          "category": "geology",
+          "title": "Chalk Inclines",
+          "text": "The steep inclines in the chalk beds are clearly visible here, showcasing how millions of years of geological processes has shaped this region.",
+          "image": "",
+        },
+        {
+          "yaw": 2.55,
+          "pitch": 0.68,
+          "category": "geomorphology",
+          "title": "Cliff Collapse",
+          "text": "This large deposit is the result of a failure between the chalk layers further up the cliff. A number of these can be seen along the cliff face.",
+          "image": "",
+        },
+        {
+          "yaw": 2.67,
+          "pitch": -0.2,
+          "category": "heritage",
+          "title": "The Old Battery",
+          "text": "This is the site of the Old Battery, a Victorian coastal defence post built between 1861 and 1863. We will learn more about this later in the tour.",
+          "image": "",
+        },
+        {
+          "yaw": 2.82,
+          "pitch": 0.07,
+          "category": "vegetation",
+          "title": "Colonising Vegetation",
+          "text": "Despite the harsh conditions and steep slopes, vegetation can still establish itself here. However, in contrast to softer substrates, the stabilising effects are more limited.",
+          "image": "",
+        },
+      ],
       "narrative": [
         {
-          "title": "Overview",
-          "body": "<p>Iconic chalk stacks formed by coastal erosion.</p>"
+          "title": "Geology: The Needles",
+          "body": `
+            <p>
+              Here we find the iconic chalk stacks formed by coastal erosion and the chalk geology. This protrusion of chalk
+              from the main headland has been eroded over thousands of years to produce this marvelous site. 
+
+              Chalk needs a higher force or a longer time period to erode at the same rate as the mud and sand stones seen
+              in Alum Bay, and as such this chalk headland remains. The slower and more discrete erosion events over time lead
+              to the angled cliffine we see here, extending up to the main coastguard station. Erosion events are typically dominated
+              by structural breaks between layers of chalk.
+
+              Explore around to see how the geology affects this landscape, before we continue on to look at some of the erosional
+              processes occuring here.
+            </p>
+          `
         }
       ]
     },

@@ -493,6 +493,7 @@ var APP_DATA = {
       "hotspots": [],
       "narrative": [
         {
+          "title": "A Closer Look at the Overhang.",
           "body":`
             <p>
               From here we get a better look at this overhanging arch feature. The toe to the right of this cave

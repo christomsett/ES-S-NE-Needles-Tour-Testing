@@ -195,6 +195,38 @@ var APP_DATA = {
           "image": "",
         },
         {
+          "yaw": 0.96,
+          "pitch": 0.13,
+          "category": "geomorphology",
+          "title": "Gulley Zone",
+          "text": "This is a refion where continous recession has caused a gully zone to form. A series of these are visible across the face of Alum Bay.",
+          "image": "",
+        },
+        {
+          "yaw": -0.2,
+          "pitch": 0.45,
+          "category": "geomorphology",
+          "title": "Wave Attack",
+          "text": "The prevailing wind direction here creates a dominant area of wave attack, cuasing the beach and cliff base to be continously eroded despite some protection from the chalk headland.",
+          "image": "",
+        },
+        {
+          "yaw": 0,
+          "pitch": 0.34,
+          "category": "geomorphology",
+          "title": "Narrow Beach",
+          "text": "The underlying geology and geomorphological processes here lead to a narrow beach even at low tides. This offers little protection during storm events to the cliff behind.",
+          "image": "",
+        },
+        {
+          "yaw": 0.25,
+          "pitch": -0.12,
+          "category": "geology",
+          "title": "Inclined Strata",
+          "text": "The differing geology of this region is highlighted by the changes of colour. At this spot we can see steep inclines in the rock layers.",
+          "image": "",
+        },
+        {
           "yaw": 1.11,
           "pitch": 0.12,
           "category": "geology",
@@ -216,14 +248,14 @@ var APP_DATA = {
 
             <p>
               The changes in these rock types lead to a much more mobile landscape, with a series of erosion features present
-              across the area. The steep cliff as you look out over Alum Bay hgihlights this rapid shift in underlying
-              geology, you don't want to get too close to the edge!
+              across the area such as gullies and toe erosion. The steep cliff as you look out over Alum Bay hgihlights this 
+              rapid shift in underlying geology, you don't want to get too close to the edge!
             </p>
 
             <p>
-              The soft cliffs regularly release fossils onto the beach below making it a popular location for tourists
-              to visit year round. The Needles visitor centre even has a chairlift to take you down directly onto the
-              beach.
+              The soft cliffs are continously being eroded here, and as a result they regularly release fossils onto the beach 
+              below making it a popular location for tourists to visit year round. The Needles visitor centre even has a 
+              chairlift to take you down directly onto the beach.
             </p>
 
             <p>
@@ -309,6 +341,54 @@ var APP_DATA = {
           "title": "Exposed Chalk",
           "text": "The underlying geology of this cliff section is clearly exposed along this stretch, emphasising the differences geological type has on cliff structure.",
           "image": "img/Heritage.png",
+        },
+        {
+          "yaw": -0.88,
+          "pitch": -0.22,
+          "category": "geology",
+          "title": "Cliff Line",
+          "text": "Across the view, we can see a clearly defined cliff top break point, with several exposed scarp faces from erosion activity.",
+          "image": "",
+        },
+        {
+          "yaw": -0.09,
+          "pitch": -0.36,
+          "category": "geology",
+          "title": "Hummocky Ground",
+          "text": "This area of uneven ground is typically caused by mass movement, such as landslides and rotational slumping, due to the unconsolidated materials below.",
+          "image": "",
+        },
+        {
+          "yaw": -0.43,
+          "pitch": -0.22,
+          "category": "geomorphology",
+          "title": "Exposed Scarp Faces",
+          "text": "Before the geology changes to the chalk of the headland, this cliff face has a number of exposed scarp faces such as this one, see how many spots you can see.",
+          "image": "",
+        },
+        {
+          "yaw": 2.45,
+          "pitch": 1.22,
+          "category": "geomorphology",
+          "title": "Surface Cracks",
+          "text": "Directly below our viewing point is a number of exposed fissures, where the ground is seperated after moving at variable rates due to the nature of the soft cliffs.",
+          "image": "",
+        },
+        {
+          "yaw": -2,
+          "pitch": 0.76,
+          "category": "geomorphology",
+          "title": "Exposed Ground",
+          "text": "Here we can see some freshly exposed material resulting from mass movement activity. Have a look further down the cliff to see if you can spot where it went...",
+          "image": "",
+        },
+        {
+          "yaw": -2.54,
+          "pitch": 0.62,
+          "category": "geomorphology",
+          "title": "Debris Zone",
+          "text": "There is evidence of debris accumulation at the foot of the cliff, resulting from a single or multiple events. Perhaps some of this material has come from the exposed ground directly upslope.",
+          "image": "",
         },
         {
           "yaw": 2.59,

@@ -615,13 +615,36 @@ var APP_DATA = {
           "text": "The lovely village at Freshwater Bay is a few miles down the coast.",
           "image": "",
         },
+      ],
+      "narrative": [
+        {
+          "title": "Erosion: Continued",
+          "body": `
+            <p>
+              Now we are on the South stretch of coastline around The Needles headland, we are again presented with a slightly
+              different perspective on erosion at this site.
+            </p>
+
+            <p>
+              Whilst the area around The Needles had steep inclines in the geology, a large archway forming, and those iconic stacks
+              upon which the lighthouse is found, this stretch seems somewhat more stable. However, have a look around to see signs
+              of geomorphic activity along the coast.
+            </p>
+
+            <p>
+              Next, we will be talking a little about the vegetation at the site, and the role this plays.
+            </p>
+          `
+        }
       ]
     },
     {
       "id": "5-south-cliff-from-the-ground",
       "name": "South-Cliff-From-The-Ground",
       "previousScene": "4-south-ckliff-from-the-air",
-      "nextScene": "6-the-needles",
+      "nextScene": "8-the-old-battery-from-the-ground",
+      "previousSceneSubtitle": "Erosion",
+      "nextSceneSubtitle": "The Old Battery",
       "levels": [
         {
           "tileSize": 256,
@@ -661,7 +684,55 @@ var APP_DATA = {
           "target": "0-home-viewpoint"
         }
       ],
-      "hotspots": []
+      "hotspots": [
+        {
+          "yaw": 2.35,
+          "pitch": 0.4,
+          "category": "geology",
+          "title": "Burrows",
+          "text": "The thin layer of soil and underlying chalk geology make an excellent location for burrowing animals such as rabbits.",
+          "image": "",
+        },
+        {
+          "yaw": -2.14,
+          "pitch": 0.06,
+          "category": "vegetation",
+          "title": "Grasses",
+          "text": "This section of grassland is typical of much of the site, with larger vegetation such as trees and schrubs sporadically present across the landscape.",
+          "image": "",
+        },
+        {
+          "yaw": 1.50,
+          "pitch": 0.10,
+          "category": "vegetation",
+          "title": "Harsh Conditions",
+          "text": "The exposure of this section to the winds from the English Channel make it a challenging place for vegetation to grow.",
+          "image": "",
+        },
+      ],
+      "narrative": [
+        {
+          "title": "Vegetation",
+          "body": `
+            <p>
+              As you can see from our home location on this tour, the majority of land at this location is covered by 
+              a variety of grasslands.
+            </p>
+
+            <p>
+              There is not a great amount fo diversity in the types of vegetation here, but grasslands play a key role
+              in our ecosystem, and offere a variety of different types to support different habitats. We have also seen
+              colonising vegetation on the slopes of both chalk and mud/sandstone cliffs, showcasing the different 
+              locations in which vegetation can flourish.
+            </p>
+
+            <p>
+              Our final stop on this tour epxlores The Old Battery, demonstrating the importance of this location across
+              its varied history.
+            </p>
+          `
+        }
+      ]
     },
     {
       "id": "6-the-needles",

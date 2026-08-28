@@ -657,7 +657,7 @@ var APP_DATA = {
           "image": "",
         },
         {
-          "yaw": -0.65,
+          "yaw": -0.19,
           "pitch": 0.02,
           "category": "heritage",
           "title": "The Needles Lighthouse",
@@ -665,7 +665,7 @@ var APP_DATA = {
           "image": "",
         },
         {
-          "yaw": 2.25,
+          "yaw": 2.70,
           "pitch": 0.39,
           "category": "geology",
           "title": "Chalk Inclines",
@@ -673,7 +673,7 @@ var APP_DATA = {
           "image": "",
         },
         {
-          "yaw": 2.55,
+          "yaw": 3.13,
           "pitch": 0.68,
           "category": "geomorphology",
           "title": "Cliff Collapse",
@@ -681,7 +681,7 @@ var APP_DATA = {
           "image": "",
         },
         {
-          "yaw": 2.67,
+          "yaw": -3.13,
           "pitch": -0.2,
           "category": "heritage",
           "title": "The Old Battery",
@@ -689,7 +689,7 @@ var APP_DATA = {
           "image": "",
         },
         {
-          "yaw": 2.82,
+          "yaw": 3.04,
           "pitch": 0.07,
           "category": "vegetation",
           "title": "Colonising Vegetation",
@@ -704,12 +704,16 @@ var APP_DATA = {
             <p>
               Here we find the iconic chalk stacks formed by coastal erosion and the chalk geology. This protrusion of chalk
               from the main headland has been eroded over thousands of years to produce this marvelous site. 
+            </p>
 
+            <p>
               Chalk needs a higher force or a longer time period to erode at the same rate as the mud and sand stones seen
               in Alum Bay, and as such this chalk headland remains. The slower and more discrete erosion events over time lead
               to the angled cliffine we see here, extending up to the main coastguard station. Erosion events are typically dominated
               by structural breaks between layers of chalk.
+            </p>
 
+            <p>
               Explore around to see how the geology affects this landscape, before we continue on to look at some of the erosional
               processes occuring here.
             </p>

@@ -429,8 +429,10 @@ var APP_DATA = {
     {
       "id": "3-chalk-cliff-overhang",
       "name": "Chalk-Cliff-Overhang",
-      "previousScene": "2-alum-bay-from-the-air",
+      "previousScene": "7-needles-south-facing-cliffs",
       "nextScene": "4-south-ckliff-from-the-air",
+      "previousSceneSubtitle": "Erosion: The Needles",
+      "nextSceneSubtitle": "Erosion: Continued",
       "levels": [
         {
           "tileSize": 256,
@@ -489,13 +491,35 @@ var APP_DATA = {
         }
       ],
       "hotspots": [],
-      "narrative": []
+      "narrative": [
+        {
+          "body":`
+            <p>
+              From here we get a better look at this overhanging arch feature. The toe to the right of this cave
+              indicates this feature has developed over time and may have unbdergone several collapses through time,
+              gradually receeding the cliff line to its current position.
+            </p>
+
+            <p>
+              We can also see the coastguard and defence infrastructure that has been placed along here over the years,
+              highlgihting the benefit of this location as a strategic vantage point over the English Channel.
+            </p>
+
+            <p>
+              Lets head back to the view we just had, or if you have explored this already, continue onto the
+              next section of our tour along the South of The Needles headland.
+            </p>
+            `
+        }      
+      ]
     },
     {
       "id": "4-south-ckliff-from-the-air",
       "name": "South-Ckliff-From-The-Air",
       "previousScene": "3-chalk-cliff-overhang",
       "nextScene": "5-south-cliff-from-the-ground",
+      "previousSceneSubtitle": "Erosion: Previous",
+      "nextSceneSubtitle": "Vegetation",
       "levels": [
         {
           "tileSize": 256,
@@ -541,7 +565,56 @@ var APP_DATA = {
           "target": "6-the-needles"
         }
       ],
-      "hotspots": []
+      "hotspots": [
+        {
+          "yaw": 0.03,
+          "pitch": -0.09,
+          "category": "heritage",
+          "title": "UAV Pilots",
+          "text": "CHANGE CATEGORY!!! All this imagery has to come from somewhere, in this scene you can see the pilots flying the drone!",
+          "image": "",
+        },
+        {
+          "yaw": 0.48,
+          "pitch": 0.24,
+          "category": "geology",
+          "title": "Chalk Layers",
+          "text": "In comparison to The Needles location, the chalk layering here is more horizontal with no inclination.",
+          "image": "",
+        },
+        {
+          "yaw": 1.56,
+          "pitch": 0.49,
+          "category": "geomorphology",
+          "title": "Former Stack",
+          "text": "This little stump of chalk rock poking out of the sea would have previously been a stack, and many years ago been attached to the mainland.",
+          "image": "",
+        },
+        {
+          "yaw": 1.36,
+          "pitch": 0.23,
+          "category": "geomorphology",
+          "title": "Cliff Toe",
+          "text": "The cliff toe here is much more varied comapred to the straighter toes elsewhere, this is likely to lead to several arches and stacks forming in the future.",
+          "image": "",
+        },
+        {
+          "yaw": -0.91,
+          "pitch": 1.04,
+          "category": "geomorphology",
+          "title": "Deposition",
+          "text": "Compared to other sections of the coastline here, this stretch has much smaller and less frequent deposition signals, either from less activity or higher rates of debris removal.",
+          "image": "",
+        },
+        {
+          "yaw": 1.43,
+          "pitch": 0.01,
+          "category": "heritage",
+          "title": "Freshwater Bay",
+          "text": "The lovely village at Freshwater Bay is a few miles down the coast.",
+          "image": "",
+        },
+      ]
     },
     {
       "id": "5-south-cliff-from-the-ground",
@@ -593,7 +666,7 @@ var APP_DATA = {
       "id": "6-the-needles",
       "name": "The-Needles",
       "previousScene": "2-alum-bay-from-the-air",
-      "nextScene": "3-chalk-cliff-overhang",
+      "nextScene": "7-needles-south-facing-cliffs",
       "previousSceneSubtitle": "Geology: Previous",
       "nextSceneSubtitle": "Erosion",
       "levels": [
@@ -725,7 +798,9 @@ var APP_DATA = {
       "id": "7-needles-south-facing-cliffs",
       "name": "Needles-South-Facing-Cliffs",
       "previousScene": "6-the-needles",
-      "nextScene": "8-the-old-battery-from-the-ground",
+      "nextScene": "4-south-ckliff-from-the-air",
+      "previousSceneSubtitle": "Erosion: Previous",
+      "nextSceneSubtitle": "Erosion: Continued",
       "levels": [
         {
           "tileSize": 256,
@@ -762,7 +837,7 @@ var APP_DATA = {
           "yaw": 0.738125498058956,
           "pitch": -0.11564914743675914,
           "rotation": 0,
-          "target": "7-needles-south-facing-cliffs"
+          "target": "4-south-ckliff-from-the-air"
         },
         {
           "yaw": 0.20437085063286986,
@@ -783,7 +858,56 @@ var APP_DATA = {
           "target": "6-the-needles"
         }
       ],
-      "hotspots": []
+      "hotspots": [
+        {
+          "yaw": -2.81,
+          "pitch": 0.15,
+          "category": "geomorphology",
+          "title": "Stack Erosion",
+          "text": "Stacks are formed by the erosive power of the sea, intially causing cracks in the rock, before creating caves, arches, and finally stacks. Another famous example of this is Old harrys Rocks at Studland Bay.",
+          "image": "",
+        },
+        {
+          "yaw": -0.57,
+          "pitch": 0.1,
+          "category": "geology",
+          "title": "Chalk Layers",
+          "text": "The steeply inclined nature of the chalk beds here are clearly showcase on this exposed edge, a constant feature of this landscape.",
+          "image": "",
+        },
+        {
+          "yaw": -2.31,
+          "pitch": 0.74,
+          "category": "geomorphology",
+          "title": "Deposition",
+          "text": "Here we can see another example of a deposit from a cliff failure. How long these are present on the shoreline is dependent on the size of the deposit and the wave eneergy capable of removing them.",
+          "image": "",
+        },
+        {
+          "yaw": 0.41,
+          "pitch": 0.73,
+          "category": "geomorphology",
+          "title": "Narrow Foreshore",
+          "text": "The small area of land visible in front of the cliff means there is little protection for the base of the cliff. This was similar in Alum bay, but Alum bay is far more active.",
+          "image": "",
+        },
+        {
+          "yaw": 0.63,
+          "pitch": 0.25,
+          "category": "geomorphology",
+          "title": "Developing Overhang",
+          "text": "Here we can see a large overhang developing from erosional activity. The dominant wave direction faces this feature exposing it to the full power of the sea. Quickly have a closer look using the arrows before jumping back to this point.",
+          "image": "",
+        },
+        {
+          "yaw": -1.37,
+          "pitch": 0.13,
+          "category": "heritage",
+          "title": "Old Battery Entrance",
+          "text": "For security, a large cutaway is present at the entrance to the Old Battery, access via a drawbridge only!",
+          "image": "",
+        },
+      ]
     },
     {
       "id": "8-the-old-battery-from-the-ground",

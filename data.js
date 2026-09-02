@@ -110,7 +110,7 @@ var APP_DATA = {
       
             <h3>Survey & Data Capture</h3>
             <p>
-              The 360 imagery captured and used here was part of a wider project by Natural England. Photos from the gorund were
+              The 360 imagery captured and used here was part of a wider project by Natural England. Photos from the ground were
               obtained using a panoramic phone feature, whereas aerial 360 imagery was captured using a DJI Mavic 3.
             </p>  
           `
@@ -199,7 +199,7 @@ var APP_DATA = {
           "pitch": 0.13,
           "category": "geomorphology",
           "title": "Gulley Zone",
-          "text": "This is a refion where continous recession has caused a gully zone to form. A series of these are visible across the face of Alum Bay.",
+          "text": "This is a region where continous recession has caused a gully zone to form. A series of these are visible across the face of Alum Bay.",
           "image": "",
         },
         {
@@ -391,6 +391,30 @@ var APP_DATA = {
           "image": "",
         },
         {
+          "yaw": 1.55,
+          "pitch": 0.22,
+          "category": "vegetation",
+          "title": "Patchwork Habitat",
+          "text": "Soft cliffs contain a mix of bare ground, young vegetation and older plant communities. Constant erosion and landslides create an ever-changing patchwork of habitats. \n1)	Different parts of the cliff represent different stages of recovery. Some areas support pioneer species, while older, more stable ground can develop grassland, scrub or even woodland.",
+          "image": "",
+        },
+        {
+          "yaw": -1.64,
+          "pitch": 0.58,
+          "category": "vegetation",
+          "title": "Fresh Start",
+          "text": "Landslides expose bare ground, creating space for pioneer plants such as coltsfoot and creeping bent. These hardy species are often the first to colonise newly disturbed areas.",
+          "image": "",
+        },
+        {
+          "yaw": 0.06,
+          "pitch": 0.81,
+          "category": "vegetation",
+          "title": "Plants on the Move",
+          "text": "When cliffs collapse, blocks of soil and vegetation can slide downslope as "rafts". These rafts carry established plants from the cliff top to new locations below.",
+          "image": "",
+        },
+        {
           "yaw": 2.59,
           "pitch": 0.17,
           "category": "geomorphology",
@@ -414,7 +438,7 @@ var APP_DATA = {
             </p>
 
             <p>
-              Alum Bay exhibits a much greatervariability in its morphology, with steep cliff sections, ridges and gulleys, as well as a display of
+              Alum Bay exhibits a much greater variability in its morphology, with steep cliff sections, ridges and gulleys, as well as a display of
               slumps and former landslip events. Contrast between exposed rock and vegetated areas helps us identify the age of different events,
               and for how long slopes have remained stable for. 
             </p>
@@ -497,13 +521,13 @@ var APP_DATA = {
           "body":`
             <p>
               From here we get a better look at this overhanging arch feature. The toe to the right of this cave
-              indicates this feature has developed over time and may have unbdergone several collapses through time,
+              indicates this feature has developed over time and may have undergone several collapses through time,
               gradually receeding the cliff line to its current position.
             </p>
 
             <p>
               We can also see the coastguard and defence infrastructure that has been placed along here over the years,
-              highlgihting the benefit of this location as a strategic vantage point over the English Channel.
+              highlighting the benefit of this location as a strategic vantage point over the English Channel.
             </p>
 
             <p>
@@ -570,9 +594,9 @@ var APP_DATA = {
         {
           "yaw": 0.03,
           "pitch": -0.09,
-          "category": "heritage",
+          "category": "misc",
           "title": "UAV Pilots",
-          "text": "CHANGE CATEGORY!!! All this imagery has to come from somewhere, in this scene you can see the pilots flying the drone!",
+          "text": "All this imagery has to come from somewhere, in this scene you can see the pilots flying the drone!",
           "image": "",
         },
         {
@@ -720,8 +744,8 @@ var APP_DATA = {
             </p>
 
             <p>
-              There is not a great amount fo diversity in the types of vegetation here, but grasslands play a key role
-              in our ecosystem, and offere a variety of different types to support different habitats. We have also seen
+              There is not a great amount of diversity in the types of vegetation here, but grasslands play a key role
+              in our ecosystem, and offers a variety of different types to support different habitats. We have also seen
               colonising vegetation on the slopes of both chalk and mud/sandstone cliffs, showcasing the different 
               locations in which vegetation can flourish.
             </p>
@@ -854,7 +878,7 @@ var APP_DATA = {
             <p>
               Chalk needs a higher force or a longer time period to erode at the same rate as the mud and sand stones seen
               in Alum Bay, and as such this chalk headland remains. The slower and more discrete erosion events over time lead
-              to the angled cliffine we see here, extending up to the main coastguard station. Erosion events are typically dominated
+              to the angled cliff line we see here, extending up to the main coastguard station. Erosion events are typically dominated
               by structural breaks between layers of chalk.
             </p>
 

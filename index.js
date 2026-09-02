@@ -438,6 +438,7 @@
       geomorphology: 'img/Geomorphology.png',
       heritage: 'img/Heritage.png',
       vegetation: 'img/Vegetation.png',
+      misc: 'img/misc.png',
       logos: 'img/Logos.png',
       general: 'img/Logos.png'
     };

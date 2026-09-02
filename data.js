@@ -411,7 +411,7 @@ var APP_DATA = {
           "pitch": 0.81,
           "category": "vegetation",
           "title": "Plants on the Move",
-          "text": "When cliffs collapse, blocks of soil and vegetation can slide downslope as "rafts". These rafts carry established plants from the cliff top to new locations below.",
+          "text": "When cliffs collapse, blocks of soil and vegetation can slide downslope as rafts. These rafts carry established plants from the cliff top to new locations below.",
           "image": "",
         },
         {

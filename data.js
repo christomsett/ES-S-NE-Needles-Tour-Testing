@@ -395,7 +395,7 @@ var APP_DATA = {
           "pitch": 0.22,
           "category": "vegetation",
           "title": "Patchwork Habitat",
-          "text": "Soft cliffs contain a mix of bare ground, young vegetation and older plant communities. Constant erosion and landslides create an ever-changing patchwork of habitats. \nDifferent parts of the cliff represent different stages of recovery. Some areas support pioneer species, while older, more stable ground can develop grassland, scrub or even woodland.",
+          "text": "Soft cliffs contain a mix of bare ground, young vegetation and older plant communities. Constant erosion and landslides create an ever-changing patchwork of habitats.<br><br>Different parts of the cliff represent different stages of recovery. Some areas support pioneer species, while older, more stable ground can develop grassland, scrub or even woodland.",
           "image": "",
         },
         {
@@ -639,6 +639,14 @@ var APP_DATA = {
           "text": "The lovely village at Freshwater Bay is a few miles down the coast.",
           "image": "",
         },
+        {
+          "yaw": -0.26,
+          "pitch": 0.04,
+          "category": "vegetation",
+          "title": "Vegetation History",
+          "text": "Fossil plants occur at several horizons within the site, and the flora assemblage which occur are important for reconstructing the vegetation history of the Hampshire Basin during Eocene times.",
+          "image": "",
+        }
       ],
       "narrative": [
         {
@@ -712,7 +720,7 @@ var APP_DATA = {
         {
           "yaw": 2.35,
           "pitch": 0.4,
-          "category": "geology",
+          "category": "misc",
           "title": "Burrows",
           "text": "The thin layer of soil and underlying chalk geology make an excellent location for burrowing animals such as rabbits.",
           "image": "",
@@ -730,7 +738,7 @@ var APP_DATA = {
           "pitch": 0.10,
           "category": "vegetation",
           "title": "Harsh Conditions",
-          "text": "The exposure of this section to the winds from the English Channel make it a challenging place for vegetation to grow.",
+          "text": "The exposure of this section to the winds from the English Channel make it a challenging place for vegetation to grow.<br><br>Cliff plants can grow in challenging conditions though. Salt spray, strong winds, slope angle, rock type, weather, and human activity all help determine which species can survive here.",
           "image": "",
         },
       ],
@@ -739,17 +747,33 @@ var APP_DATA = {
           "title": "Vegetation",
           "body": `
             <p>
-              As you can see from our home location on this tour, the majority of land at this location is covered by 
-              a variety of grasslands.
+              The cliffs at the Needles and Alum Bay form part of the Headon Warren and West High Down Site of Special 
+              Scientific Interest (SSSI), owned and managed by the National Trust.
             </p>
 
             <p>
-              There is not a great amount of diversity in the types of vegetation here, but grasslands play a key role
-              in our ecosystem, and offers a variety of different types to support different habitats. We have also seen
-              colonising vegetation on the slopes of both chalk and mud/sandstone cliffs, showcasing the different 
-              locations in which vegetation can flourish.
+              Tennyson Down and West High Down (which can be seen here) support chalk and neutral grasslands. They are of 
+              great scientific and nature conservation importance for the richness of their chalk grassland vegetation and 
+              the presence of acid loving plant species that grow in small pockets on the drift deposits on the ridge.  
             </p>
 
+            <p>
+              The images here were taken in February, but if you were to visit in the spring/ summer the cliff tops
+              would be a riot of colour with Horseshoe vetch, Wild Thyme and Cowslips.  For example, it supports nine species 
+              of orchids, most notable is the Pyramidal orchid—the county flower of the Isle of Wight; and populations of rare 
+              plants such as the Early Gentian and Tufted Centaury.
+            </p>
+
+            <p>
+              The area is heavily grazed by rabbits which results in a short sward.  But the National Trust also grazes the cliff 
+              tops with cattle (see here: 
+              <a href="https://www.nationaltrust.org.uk/visit/isle-of-wight/the-needles-headland-and-tennyson-down/our-work-on-headon-warren" target="_blank" rel="noopener noreferrer">
+                Conservation, grazing, Isle of Wight | National Trust 
+              </a>. 
+              ). The National Trust also actively remove non-native invasive Cotoneaster shrubs, which form dense mats that threaten 
+              to choke out the rare species.
+            </p>
+              
             <p>
               Our final stop on this tour epxlores The Old Battery, demonstrating the importance of this location across
               its varied history.

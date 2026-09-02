@@ -425,7 +425,7 @@
     if (h.text) {
       var cap = document.createElement('div');
       cap.className = 'popup-caption';
-      cap.textContent = h.text;
+      cap.innerHTML = h.text;
       wrap.appendChild(cap);
     }
 

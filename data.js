@@ -82,16 +82,9 @@ var APP_DATA = {
       ],
       "hotspots": [
         {
-          "yaw": 1.2,
-          "pitch": 0.1,
-          "category": "geology",
-          "title": "Geology",
-          "video": "https://www.youtube.com/watch?v=7vNUVzaKNkA",
-        },
-        {
           "yaw": -1.0,
           "pitch": -0.2,
-          "category": "geomorphology",
+          "category": "misc",
           "title": "Survey & Data Capture",
           "text": "We used UAVs to get data from previously inaccessible areas of the cliff face.",
           "image": "img/uav-pic.png",
@@ -597,7 +590,7 @@ var APP_DATA = {
           "category": "misc",
           "title": "UAV Pilots",
           "text": "All this imagery has to come from somewhere, in this scene you can see the pilots flying the drone!",
-          "image": "",
+          "image": "img/UAV-pilots.JPG",
         },
         {
           "yaw": 0.48,
@@ -723,7 +716,7 @@ var APP_DATA = {
           "category": "misc",
           "title": "Burrows",
           "text": "The thin layer of soil and underlying chalk geology make an excellent location for burrowing animals such as rabbits.",
-          "image": "",
+          "image": "img/rabbit.jpg",
         },
         {
           "yaw": -2.14,
@@ -739,7 +732,7 @@ var APP_DATA = {
           "category": "vegetation",
           "title": "Harsh Conditions",
           "text": "The exposure of this section to the winds from the English Channel make it a challenging place for vegetation to grow.<br><br>Cliff plants can grow in challenging conditions though. Salt spray, strong winds, slope angle, rock type, weather, and human activity all help determine which species can survive here.",
-          "image": "",
+          "image": "img/wild-thyme.jpg",
         },
       ],
       "narrative": [
@@ -855,7 +848,7 @@ var APP_DATA = {
           "category": "heritage",
           "title": "The Needles Lighthouse",
           "text": "This 30m high landmark was completed in 1859, and was automated in 1994 ending the long history of having light house keepers on site. The light form the tower can be seen up to 14 miles away!",
-          "image": "",
+          "image": "img/lighthouse.png",
         },
         {
           "yaw": 2.70,

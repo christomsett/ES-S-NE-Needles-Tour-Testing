@@ -395,7 +395,7 @@ var APP_DATA = {
           "pitch": 0.22,
           "category": "vegetation",
           "title": "Patchwork Habitat",
-          "text": "Soft cliffs contain a mix of bare ground, young vegetation and older plant communities. Constant erosion and landslides create an ever-changing patchwork of habitats. \n1)	Different parts of the cliff represent different stages of recovery. Some areas support pioneer species, while older, more stable ground can develop grassland, scrub or even woodland.",
+          "text": "Soft cliffs contain a mix of bare ground, young vegetation and older plant communities. Constant erosion and landslides create an ever-changing patchwork of habitats. \nDifferent parts of the cliff represent different stages of recovery. Some areas support pioneer species, while older, more stable ground can develop grassland, scrub or even woodland.",
           "image": "",
         },
         {

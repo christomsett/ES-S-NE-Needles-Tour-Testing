@@ -707,7 +707,7 @@ var APP_DATA = {
           "yaw": 0.6780022185710433,
           "pitch": 0.05471604189472146,
           "rotation": 0,
-          "target": "7-needles-south-facing-cliffs"
+          "target": "4-south-ckliff-from-the-air"
         },
         {
           "yaw": 2.5280934999500353,

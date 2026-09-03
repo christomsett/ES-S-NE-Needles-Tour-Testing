@@ -4,7 +4,7 @@ var APP_DATA = {
       "id": "0-home-viewpoint",
       "name": "Home Viewpoint",
       "listNumber": null, /* MANUAL - shown as the number prefix in the left-hand scene list, independent of previousSceneSubtitle/nextSceneSubtitle */
-      "listLabel": "Home", /* MANUAL - shown as the text in the left-hand scene list. listNumber is null here, so no number prefix is shown - just "Home" */
+      "listLabel": "Home View", /* MANUAL - shown as the text in the left-hand scene list. listNumber is null here, so no number prefix is shown - just "Home" */
       "nextScene": "1-alum-bay-from-the-ground",
       "nextSceneSubtitle": "Geology: Alum Bay",
       "levels": [
@@ -116,7 +116,7 @@ var APP_DATA = {
       "id": "1-alum-bay-from-the-ground",
       "name": "Alum Bay From The Ground",
       "listNumber": 1, /* MANUAL - shown as the number prefix in the left-hand scene list, independent of previousSceneSubtitle/nextSceneSubtitle */
-      "listLabel": "Geology", /* MANUAL - shown as the text in the left-hand scene list, e.g. "1. Geology" - can read completely differently from the scene's own "name" or its next/previous subtitles */
+      "listLabel": "Geology - Alum Bay from the ground", /* MANUAL - shown as the text in the left-hand scene list, e.g. "1. Geology" - can read completely differently from the scene's own "name" or its next/previous subtitles */
       "previousScene": "0-home-viewpoint",
       "nextScene": "2-alum-bay-from-the-air",
       "previousSceneSubtitle": "Home",
@@ -265,8 +265,8 @@ var APP_DATA = {
     {
       "id": "2-alum-bay-from-the-air",
       "name": "Alum Bay From The Air",
-      "listNumber": 1, /* MANUAL - shown as the number prefix in the left-hand scene list, independent of previousSceneSubtitle/nextSceneSubtitle */
-      "listLabel": "Geology", /* MANUAL - shown as the text in the left-hand scene list, e.g. "1. Geology" - can read completely differently from the scene's own "name" or its next/previous subtitles */
+      "listNumber": 2, /* MANUAL - shown as the number prefix in the left-hand scene list, independent of previousSceneSubtitle/nextSceneSubtitle */
+      "listLabel": "Geology Continued: Alum Bay from the air", /* MANUAL - shown as the text in the left-hand scene list, e.g. "1. Geology" - can read completely differently from the scene's own "name" or its next/previous subtitles */
       "previousScene": "1-alum-bay-from-the-ground",
       "nextScene": "6-the-needles",
       "previousSceneSubtitle": "Geology: Previous",
@@ -452,8 +452,8 @@ var APP_DATA = {
     {
       "id": "3-chalk-cliff-overhang",
       "name": "Chalk Cliff Overhang",
-      "listNumber": 2, /* MANUAL - shown as the number prefix in the left-hand scene list, independent of previousSceneSubtitle/nextSceneSubtitle */
-      "listLabel": "Erosion", /* MANUAL - shown as the text in the left-hand scene list, e.g. "2. Erosion" - can read completely differently from the scene's own "name" or its next/previous subtitles */
+      "listNumber": 6, /* MANUAL - shown as the number prefix in the left-hand scene list, independent of previousSceneSubtitle/nextSceneSubtitle */
+      "listLabel": "Erosion Bonus: Chalk Overhang", /* MANUAL - shown as the text in the left-hand scene list, e.g. "2. Erosion" - can read completely differently from the scene's own "name" or its next/previous subtitles */
       "previousScene": "7-needles-south-facing-cliffs",
       "nextScene": "4-south-cliff-from-the-air",
       "previousSceneSubtitle": "Erosion: The Needles",
@@ -542,8 +542,8 @@ var APP_DATA = {
     {
       "id": "4-south-cliff-from-the-air",
       "name": "South Cliff From The Air",
-      "listNumber": 2, /* MANUAL - shown as the number prefix in the left-hand scene list, independent of previousSceneSubtitle/nextSceneSubtitle */
-      "listLabel": "Erosion", /* MANUAL - shown as the text in the left-hand scene list, e.g. "2. Erosion" - can read completely differently from the scene's own "name" or its next/previous subtitles */
+      "listNumber": 5, /* MANUAL - shown as the number prefix in the left-hand scene list, independent of previousSceneSubtitle/nextSceneSubtitle */
+      "listLabel": "Erosion Continued: South Cliffs", /* MANUAL - shown as the text in the left-hand scene list, e.g. "2. Erosion" - can read completely differently from the scene's own "name" or its next/previous subtitles */
       "previousScene": "3-chalk-cliff-overhang",
       "nextScene": "5-south-cliff-from-the-ground",
       "previousSceneSubtitle": "Erosion: Previous",
@@ -676,7 +676,7 @@ var APP_DATA = {
     {
       "id": "5-south-cliff-from-the-ground",
       "name": "South Cliff From The Ground",
-      "listNumber": 3, /* MANUAL - shown as the number prefix in the left-hand scene list, independent of previousSceneSubtitle/nextSceneSubtitle */
+      "listNumber": 7, /* MANUAL - shown as the number prefix in the left-hand scene list, independent of previousSceneSubtitle/nextSceneSubtitle */
       "listLabel": "Vegetation", /* MANUAL - shown as the text in the left-hand scene list, e.g. "3. Vegetation" - can read completely differently from the scene's own "name" or its next/previous subtitles */
       "previousScene": "4-south-cliff-from-the-air",
       "nextScene": "8-the-old-battery-from-the-ground",
@@ -790,8 +790,8 @@ var APP_DATA = {
     {
       "id": "6-the-needles",
       "name": "The Needles",
-      "listNumber": 1, /* MANUAL - shown as the number prefix in the left-hand scene list, independent of previousSceneSubtitle/nextSceneSubtitle */
-      "listLabel": "Geology", /* MANUAL - shown as the text in the left-hand scene list, e.g. "1. Geology" - can read completely differently from the scene's own "name" or its next/previous subtitles */
+      "listNumber": 3, /* MANUAL - shown as the number prefix in the left-hand scene list, independent of previousSceneSubtitle/nextSceneSubtitle */
+      "listLabel": "Geology Continued: The Needles", /* MANUAL - shown as the text in the left-hand scene list, e.g. "1. Geology" - can read completely differently from the scene's own "name" or its next/previous subtitles */
       "previousScene": "2-alum-bay-from-the-air",
       "nextScene": "7-needles-south-facing-cliffs",
       "previousSceneSubtitle": "Geology: Previous",
@@ -924,8 +924,8 @@ var APP_DATA = {
     {
       "id": "7-needles-south-facing-cliffs",
       "name": "Needles South Facing Cliffs",
-      "listNumber": 2, /* MANUAL - shown as the number prefix in the left-hand scene list, independent of previousSceneSubtitle/nextSceneSubtitle */
-      "listLabel": "Erosion", /* MANUAL - shown as the text in the left-hand scene list, e.g. "2. Erosion" - can read completely differently from the scene's own "name" or its next/previous subtitles */
+      "listNumber": 4, /* MANUAL - shown as the number prefix in the left-hand scene list, independent of previousSceneSubtitle/nextSceneSubtitle */
+      "listLabel": "Erosion: The Needles", /* MANUAL - shown as the text in the left-hand scene list, e.g. "2. Erosion" - can read completely differently from the scene's own "name" or its next/previous subtitles */
       "previousScene": "6-the-needles",
       "nextScene": "4-south-cliff-from-the-air",
       "previousSceneSubtitle": "Erosion: Previous",
@@ -1041,8 +1041,8 @@ var APP_DATA = {
     {
       "id": "8-the-old-battery-from-the-ground",
       "name": "The Old Battery",
-      "listNumber": 4, /* MANUAL - shown as the number prefix in the left-hand scene list, independent of previousSceneSubtitle/nextSceneSubtitle */
-      "listLabel": "The Old Battery", /* MANUAL - shown as the text in the left-hand scene list, e.g. "4. The Old Battery" - can read completely differently from the scene's own "name" or its next/previous subtitles */
+      "listNumber": 8, /* MANUAL - shown as the number prefix in the left-hand scene list, independent of previousSceneSubtitle/nextSceneSubtitle */
+      "listLabel": "Heritage: The Old Battery", /* MANUAL - shown as the text in the left-hand scene list, e.g. "4. The Old Battery" - can read completely differently from the scene's own "name" or its next/previous subtitles */
       "previousScene": "7-needles-south-facing-cliffs",
       "levels": [
         {

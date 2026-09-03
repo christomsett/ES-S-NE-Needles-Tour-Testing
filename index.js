@@ -187,8 +187,25 @@
     return sceneData.listLabel || sceneData.name;
   }
 
-  function buildSceneList() {
-    scenes.forEach(function (scene) {
+    function buildSceneList() {
+    // Ordered by listNumber, ascending, rather than data.js's raw scene
+    // order - so the sidebar always reads in number order regardless of
+    // where each scene sits in data.js. Scenes with no listNumber (e.g.
+    // "Home") float to the front, ahead of chapter 1.
+    //
+    // Sort ties (scenes sharing the same listNumber, e.g. every
+    // "1. Geology" entry) keep their original relative order from
+    // data.js - so to reorder those against each other, move their
+    // blocks around inside the "scenes" array in data.js. That's the
+    // "manual" lever: listNumber controls grouping, array order controls
+    // fine placement within a group.
+    var orderedScenes = scenes.slice().sort(function (a, b) {
+      var aNum = a.data.listNumber != null ? a.data.listNumber : -1;
+      var bNum = b.data.listNumber != null ? b.data.listNumber : -1;
+      return aNum - bNum;
+    });
+
+    orderedScenes.forEach(function (scene) {
       var el = document.createElement('a');
       el.href = 'javascript:void(0)';
       el.className = 'scene';

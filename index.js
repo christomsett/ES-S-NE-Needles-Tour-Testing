@@ -7,15 +7,36 @@
   var screenfull = window.screenfull;
   var data = window.APP_DATA;
 
+  // Default icon per popup "category" - overridden/extended per-tour via
+  // settings.popupCategories in data.js. Shared by getCategoryImage()
+  // (which icon a hotspot uses) and buildIconKey() (the "Icon Key" panel).
+  var builtInCategoryImages = {
+    geology: 'img/Geology.png',
+    geomorphology: 'img/Geomorphology.png',
+    heritage: 'img/Heritage.png',
+    vegetation: 'img/Vegetation.png',
+    misc: 'img/misc.png',
+    logos: 'img/Logos.png',
+    general: 'img/Logos.png'
+  };
+
   /* ---------------- DOM ---------------- */
 
   var panoElement = document.querySelector('#pano');
   var sceneNameElement = document.querySelector('#titleBar .sceneName');
   var sceneListElement = document.querySelector('#sceneList');
-  var sceneElements = document.querySelectorAll('#sceneList .scene');
+  var sceneListUl = document.querySelector('#sceneList .scenes');
+  var sceneElements = []; // populated by buildSceneList() below
   var sceneListToggleElement = document.querySelector('#sceneListToggle');
   var autorotateToggleElement = document.querySelector('#autorotateToggle');
   var fullscreenToggleElement = document.querySelector('#fullscreenToggle');
+
+  var iconKeyToggleElement = document.querySelector('#iconKeyToggle');
+  var iconKeyPanelElement = document.querySelector('#iconKeyPanel');
+  var iconKeyListElement = document.querySelector('#iconKeyList');
+
+  var embedBoxElement = document.getElementById('embedBox');
+  var embedToggleElement = document.getElementById('embedToggle');
 
   var infoToggle = document.getElementById('infoToggle');
   var infoClose = document.getElementById('infoClose');
@@ -147,18 +168,97 @@
     });
   }
 
-  /* ---------------- SCENE LIST ---------------- */
+  /* ---------------- SCENE LIST ----------------
+     Built here from the "scenes" array (i.e. from data.js) rather than
+     from hardcoded HTML, so the list can never say something different
+     from the scene's own name/id in data.js - there is only one place
+     to edit a scene's display text now.
+
+     Each entry's text is "listNumber. listLabel" when both are set on
+     the scene (e.g. "1. Geology"), otherwise just listLabel, otherwise
+     falls back to the scene's "name". listNumber/listLabel are both
+     manual, independent fields - see data.js.
+  ------------------------------------------------ */
+
+  function formatListEntry(sceneData) {
+    if (sceneData.listNumber != null && sceneData.listLabel) {
+      return sceneData.listNumber + '. ' + sceneData.listLabel;
+    }
+    return sceneData.listLabel || sceneData.name;
+  }
+
+  function buildSceneList() {
+    scenes.forEach(function (scene) {
+      var el = document.createElement('a');
+      el.href = 'javascript:void(0)';
+      el.className = 'scene';
+      el.dataset.id = scene.data.id;
+
+      var li = document.createElement('li');
+      li.className = 'text';
+      li.textContent = formatListEntry(scene.data);
+      el.appendChild(li);
+
+      el.addEventListener('click', function () {
+        switchScene(scene);
+        if (document.body.classList.contains('mobile')) hideSceneList();
+      });
+
+      sceneListUl.appendChild(el);
+      sceneElements.push(el);
+    });
+  }
 
   sceneListToggleElement.addEventListener('click', toggleSceneList);
+  buildSceneList();
 
-  scenes.forEach(function (scene) {
-    var el = document.querySelector('#sceneList .scene[data-id="' + scene.data.id + '"]');
+  /* ---------------- ICON KEY ----------------
+     Built from settings.popupCategories in data.js (merged over the
+     built-in defaults) - add a category there and it appears here too,
+     no HTML editing required.
+  ------------------------------------------------ */
 
-    el.addEventListener('click', function () {
-      switchScene(scene);
-      if (document.body.classList.contains('mobile')) hideSceneList();
+  function buildIconKey() {
+    if (!iconKeyListElement) return;
+
+    var configured = (data.settings && data.settings.popupCategories) || {};
+    var merged = {};
+
+    Object.keys(builtInCategoryImages).forEach(function (key) {
+      merged[key] = builtInCategoryImages[key];
     });
-  });
+    Object.keys(configured).forEach(function (key) {
+      merged[key] = configured[key];
+    });
+
+    // "general"/"logos" is just the generic fallback icon, not a real
+    // content category, so it's left out of the key itself.
+    delete merged.general;
+    delete merged.logos;
+
+    Object.keys(merged).forEach(function (key) {
+      var li = document.createElement('li');
+      li.className = 'icon-key-item';
+
+      var img = document.createElement('img');
+      img.className = 'icon-key-image';
+      img.src = merged[key];
+      img.alt = '';
+
+      var label = document.createElement('span');
+      label.className = 'icon-key-label';
+      label.textContent = key.charAt(0).toUpperCase() + key.slice(1);
+
+      li.appendChild(img);
+      li.appendChild(label);
+      iconKeyListElement.appendChild(li);
+    });
+  }
+
+  if (iconKeyToggleElement) {
+    iconKeyToggleElement.addEventListener('click', toggleIconKey);
+    buildIconKey();
+  }
 
   /* ---------------- VIEW CONTROLS ---------------- */
 
@@ -282,12 +382,46 @@
         var text = target ? (subtitleText || '') : '';
         subtitleEl.textContent = text;
         subtitleEl.classList.toggle('empty', !text);
+        fitNavText(subtitleEl);
       }
+
+      fitNavText(button.querySelector('.info-nav-label'));
     }
 
     configure(infoPrevious, scene.data.previousScene, 'Previous', scene.data.previousSceneSubtitle);
     configure(infoNext, scene.data.nextScene, 'Next', scene.data.nextSceneSubtitle);
   }
+
+  /* Shrinks an element's font-size (rather than truncating with an
+     ellipsis) just enough that its text fits on one line within its
+     box. These labels are always short phrases, so a small shrink is
+     enough - it never has to fit a whole sentence. */
+  var NAV_TEXT_MIN_SIZE = 9;
+
+  function fitNavText(el) {
+    if (!el) return;
+    el.style.fontSize = '';
+    if (!el.textContent) return;
+
+    requestAnimationFrame(function () {
+      var maxSize = parseFloat(getComputedStyle(el).fontSize);
+      var size = maxSize;
+      while (el.scrollWidth > el.clientWidth + 0.5 && size > NAV_TEXT_MIN_SIZE) {
+        size -= 0.5;
+        el.style.fontSize = size + 'px';
+      }
+    });
+  }
+
+  // Box widths change (info panel collapse/expand, window resize) - refit
+  // whatever's currently showing whenever that happens.
+  window.addEventListener('resize', function () {
+    [infoPrevious, infoNext].forEach(function (button) {
+      if (!button) return;
+      fitNavText(button.querySelector('.info-nav-label'));
+      fitNavText(button.querySelector('.info-nav-subtitle'));
+    });
+  });
 
   infoContent.addEventListener('click', function (e) {
     var link = e.target.closest('.scene-link');
@@ -318,12 +452,24 @@
     resizeViewer();
   });
 
-  /* ---------------- AUTOROTATE ---------------- */
+  /* ---------------- AUTOROTATE ----------------
+     openOverlayCount tracks how many transient overlays are currently
+     open (hotspot popups, the scene list, the icon key panel). While
+     it's above zero, autorotate is held off entirely - it doesn't
+     matter how long the user sits idle, the pano won't start turning
+     underneath whatever they've got open. It only resumes once
+     everything has been closed again, and even then only after
+     AUTOROTATE_IDLE_DELAY of no interaction.
+  ------------------------------------------------ */
+
+  var AUTOROTATE_IDLE_DELAY = 8000; // ms of inactivity before autorotate kicks in on its own
+  var openOverlayCount = 0;
 
   function startAutorotate() {
     if (!autorotateToggleElement.classList.contains('enabled')) return;
+    if (openOverlayCount > 0) return; // something is still open - stay put
     viewer.startMovement(autorotate);
-    viewer.setIdleMovement(3000, autorotate);
+    viewer.setIdleMovement(AUTOROTATE_IDLE_DELAY, autorotate);
   }
 
   function stopAutorotate() {
@@ -337,16 +483,47 @@
     else stopAutorotate();
   }
 
+  // Call when a popup / the scene list / the icon key panel opens or closes.
+  function markOverlayOpened() {
+    openOverlayCount++;
+    stopAutorotate();
+  }
+
+  function markOverlayClosed() {
+    openOverlayCount = Math.max(0, openOverlayCount - 1);
+    if (openOverlayCount === 0) startAutorotate();
+  }
+
   /* ---------------- SCENE LIST UI ---------------- */
 
   function hideSceneList() {
+    if (!sceneListElement.classList.contains('enabled')) return;
     sceneListElement.classList.remove('enabled');
     sceneListToggleElement.classList.remove('enabled');
+    markOverlayClosed();
   }
 
   function toggleSceneList() {
+    var opening = !sceneListElement.classList.contains('enabled');
     sceneListElement.classList.toggle('enabled');
     sceneListToggleElement.classList.toggle('enabled');
+    if (opening) markOverlayOpened(); else markOverlayClosed();
+  }
+
+  /* ---------------- ICON KEY UI ---------------- */
+
+  function hideIconKey() {
+    if (!iconKeyPanelElement || !iconKeyPanelElement.classList.contains('enabled')) return;
+    iconKeyPanelElement.classList.remove('enabled');
+    iconKeyToggleElement.classList.remove('enabled');
+    markOverlayClosed();
+  }
+
+  function toggleIconKey() {
+    var opening = !iconKeyPanelElement.classList.contains('enabled');
+    iconKeyPanelElement.classList.toggle('enabled');
+    iconKeyToggleElement.classList.toggle('enabled');
+    if (opening) markOverlayOpened(); else markOverlayClosed();
   }
 
   /* ---------------- HOTSPOTS ---------------- */
@@ -433,22 +610,12 @@
   }
 
   function getCategoryImage(category) {
-    var builtInImages = {
-      geology: 'img/Geology.png',
-      geomorphology: 'img/Geomorphology.png',
-      heritage: 'img/Heritage.png',
-      vegetation: 'img/Vegetation.png',
-      misc: 'img/misc.png',
-      logos: 'img/Logos.png',
-      general: 'img/Logos.png'
-    };
-
     // Additional categories can be added in data.js under:
     // settings.popupCategories: { categoryName: "img/category.png" }
     var configuredImages = (data.settings && data.settings.popupCategories) || {};
     var key = String(category || 'general').toLowerCase();
 
-    return configuredImages[key] || builtInImages[key] || builtInImages.general;
+    return configuredImages[key] || builtInCategoryImages[key] || builtInCategoryImages.general;
   }
 
   function sourceTitle(h) {
@@ -473,12 +640,18 @@
       box.style.maxHeight = h.height;
     }
 
+    var closed = false;
+    function closePopup() {
+      if (closed) return;
+      closed = true;
+      if (overlay.parentNode) document.body.removeChild(overlay);
+      markOverlayClosed();
+    }
+
     var close = document.createElement('div');
     close.className = 'popup-close';
     close.innerHTML = '&times;';
-    close.onclick = function () {
-      if (overlay.parentNode) document.body.removeChild(overlay);
-    };
+    close.onclick = closePopup;
 
     var header = document.createElement('div');
     header.className = 'popup-header';
@@ -501,13 +674,12 @@
     overlay.appendChild(box);
 
     overlay.onclick = function (e) {
-      if (e.target === overlay && overlay.parentNode) {
-        document.body.removeChild(overlay);
-      }
+      if (e.target === overlay) closePopup();
     };
 
     document.body.appendChild(overlay);
     positionPopup(box, sourceEvent);
+    markOverlayOpened();
   }
 
   function positionPopup(box, sourceEvent) {
@@ -678,6 +850,18 @@
     };
     img.alt = alt || '';
     img.src = src;
+  }
+
+  /* ---------------- PIX4D EMBED ---------------- */
+
+  if (embedToggleElement && embedBoxElement) {
+    embedToggleElement.addEventListener('click', function () {
+      var collapsed = embedBoxElement.classList.toggle('collapsed');
+      embedToggleElement.setAttribute(
+        'aria-label',
+        collapsed ? 'Expand 3D model' : 'Collapse 3D model'
+      );
+    });
   }
 
   /* ---------------- INIT ---------------- */

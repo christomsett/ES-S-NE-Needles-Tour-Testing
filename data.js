@@ -1161,7 +1161,7 @@ var APP_DATA = {
       "enabled": true,
       "welcomeHeading": "Welcome to the Needles 360 Tour",
       "welcomeBody": "<p>Explore the Isle of Wight Needles site in 360&deg;. Use the information panel on the right to take a guided tour, or just pan and zoom to have a look around, use the arrow icons to move between scenes acorss the headland, and click the coloured icons to open popus containing photos, videos, and extra background information as you go.</p>",
-      "navigationImage": "",
+      "navigationImage": "img/SceneGuide.png",
       "navigationImageAlt": "How to navigate the tour",
       "creditsHeading": "Content & Funding",
       "creditsBody": "<p>This tour was produced by Environmental Sensing at The University of Southampton (ES@S) and the GeoData Institute in partnership with Natural England. Thanks to the National Trust for letting us access thier land for collecting the data.</p>",

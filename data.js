@@ -544,7 +544,7 @@ var APP_DATA = {
       "name": "South Cliff From The Air",
       "listNumber": 5, /* MANUAL - shown as the number prefix in the left-hand scene list, independent of previousSceneSubtitle/nextSceneSubtitle */
       "listLabel": "Erosion Continued: South Cliffs", /* MANUAL - shown as the text in the left-hand scene list, e.g. "2. Erosion" - can read completely differently from the scene's own "name" or its next/previous subtitles */
-      "previousScene": "3-chalk-cliff-overhang",
+      "previousScene": "7-needles-south-facing-cliffs",
       "nextScene": "5-south-cliff-from-the-ground",
       "previousSceneSubtitle": "Erosion: Previous",
       "nextSceneSubtitle": "Vegetation",
@@ -1025,7 +1025,7 @@ var APP_DATA = {
           "pitch": 0.25,
           "category": "geomorphology",
           "title": "Developing Overhang",
-          "text": "Here we can see a large overhang developing from erosional activity. The dominant wave direction faces this feature exposing it to the full power of the sea. Quickly have a closer look using the arrows before jumping back to this point.",
+          "text": "Here we can see a large overhang developing from erosional activity. The dominant wave direction faces this feature exposing it to the full power of the sea.<br><br>Quickly have a closer look using the arrows before jumping back to this point.",
           "image": "",
         },
         {
@@ -1036,6 +1036,29 @@ var APP_DATA = {
           "text": "For security, a large cutaway is present at the entrance to the Old Battery, access via a drawbridge only!",
           "image": "",
         },
+      ],
+      "narrative": [
+        {
+          "title": "Erosion: The Needles",
+          "body": `
+            <p>
+              From this vantage point we can see a series of erosional processes and subsequent features occuring at the chalk headland
+              which form The Needles. 
+            </p>
+
+            <p>
+              From the chalk stacks with their famous lighthouse on the furthest point, through forming overhangs that overshadow the
+              beach that sits below, to the active slope face and rock fall deposits on the beach, there are numerouse examples of 
+              textbook features occuring at this location. Combined with the narrow beach and harsh conditions, this makes for an
+              active area of chalk cliff.
+            </p>
+
+            <p>
+              Investigate the pop outs which dive a little bit more into the processes and fromations that are present here, before we
+              jump around the corner to see how the erosional processes change along this southern cliff line.
+            </p>
+          `
+        }
       ]
     },
     {

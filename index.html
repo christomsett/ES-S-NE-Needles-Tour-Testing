@@ -66,48 +66,34 @@
       <img class="icon on" src="img/collapse.png">
     </a>
 
+    <!--
+      The <ul> below is intentionally empty in the HTML - index.js builds
+      the whole scene list from data.js at runtime (using each scene's
+      "id", "name", "listNumber" and "listLabel"). This is what keeps the
+      list, the title bar, and data.js from ever drifting out of sync
+      with each other again: edit a scene's name in ONE place (data.js)
+      and every place it's displayed updates with it.
+    -->
     <div id="sceneList">
+      <ul class="scenes"></ul>
+    </div>
 
-      <ul class="scenes">
+    <!-- ===================================================== -->
+    <!-- ICON KEY -->
+    <!-- ===================================================== -->
 
-        <a href="javascript:void(0)" class="scene" data-id="0-home-viewpoint">
-          <li class="text">Home Viewpoint</li>
-        </a>
+    <a href="javascript:void(0)" id="iconKeyToggle" aria-label="Icon key">
+      <img class="icon off" src="img/info.png">
+      <img class="icon on" src="img/collapse.png">
+    </a>
 
-        <a href="javascript:void(0)" class="scene" data-id="1-alum-bay-from-the-ground">
-          <li class="text">Alum Bay From The Ground</li>
-        </a>
-
-        <a href="javascript:void(0)" class="scene" data-id="2-alum-bay-from-the-air">
-          <li class="text">Alum Bay From The Air</li>
-        </a>
-
-        <a href="javascript:void(0)" class="scene" data-id="3-chalk-cliff-overhang">
-          <li class="text">Chalk Cliff Overhang</li>
-        </a>
-
-        <a href="javascript:void(0)" class="scene" data-id="4-south-ckliff-from-the-air">
-          <li class="text">South Cliff From The Air</li>
-        </a>
-
-        <a href="javascript:void(0)" class="scene" data-id="5-south-cliff-from-the-ground">
-          <li class="text">South Cliff From The Ground</li>
-        </a>
-
-        <a href="javascript:void(0)" class="scene" data-id="6-the-needles">
-          <li class="text">The Needles</li>
-        </a>
-
-        <a href="javascript:void(0)" class="scene" data-id="7-needles-south-facing-cliffs">
-          <li class="text">Needles South Facing Cliffs</li>
-        </a>
-
-        <a href="javascript:void(0)" class="scene" data-id="8-the-old-battery-from-the-ground">
-          <li class="text">The Old Battery</li>
-        </a>
-
-      </ul>
-
+    <!--
+      Also built at runtime, from data.settings.popupCategories in
+      data.js - add a category there and it appears here automatically.
+    -->
+    <div id="iconKeyPanel">
+      <div id="iconKeyTitle">Icon Key</div>
+      <ul id="iconKeyList"></ul>
     </div>
 
     <!-- ===================================================== -->
@@ -221,14 +207,24 @@
 <!-- PIX4D MODEL -->
 <!-- ===================================================== -->
 
-<div class="embed-box">
+<div class="embed-box" id="embedBox">
 
-  <iframe
-    src="https://cloud.pix4d.com/embed/bim/mesh/2661384?shareToken=a3eaefd736d64b5296e6a4d3b6cfdce9"
-    frameborder="0"
-    allowfullscreen>
+  <div class="embed-box-header">
+    <span class="embed-box-title">3D Model</span>
+    <button type="button" id="embedToggle" aria-label="Collapse 3D model">
+      <img class="icon off" src="img/collapse.png" alt="">
+      <img class="icon on" src="img/expand.png" alt="">
+    </button>
+  </div>
 
-  </iframe>
+  <div class="embed-box-body">
+    <iframe
+      src="https://cloud.pix4d.com/embed/bim/mesh/2661384?shareToken=a3eaefd736d64b5296e6a4d3b6cfdce9"
+      frameborder="0"
+      allowfullscreen>
+
+    </iframe>
+  </div>
 
 </div>
 

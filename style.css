@@ -36,6 +36,24 @@
   --shadow-colour-rgb: 0, 0, 0;     /* used for drop shadows / dark overlays */
 }
 
+:root {
+  --background-1: #3c3c3b;         /* page backdrop - was pure black */
+
+  --background-2: #2d2d2c;         /* translucent panels - a touch darker than background-3, for contrast against imagery */
+  --background-2-rgb: 45, 45, 44;
+
+  --background-3: #3c3c3b;         /* solid header / close button */
+
+  --background-4: #747762;         /* secondary surface (title bar pill, scene list) */
+  --background-4-rgb: 116, 119, 98;
+
+  --highlight-1: #e76141;          /* primary CTA (splash "start" button) */
+  --highlight-1-hover: #ea785d;
+
+  --highlight-2: #e2d8c8;          /* in-text links - cream, warmer than blue on the dark charcoal */
+  --highlight-2-hover: #e9e1d5;
+}
+
 /* =========================
    GLOBAL RESET / BASE
 ========================= */

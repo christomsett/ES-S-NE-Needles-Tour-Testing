@@ -1,3 +1,41 @@
+/* =========================================================
+   COLOUR PALETTE
+   Edit the values below to re-theme the whole tour - every rule
+   further down references one of these variables instead of a
+   raw colour, so a change here applies everywhere at once.
+
+   Naming follows the header: the header's solid navy is
+   --background-3, the translucent panel/card colour used all over
+   (info panel, popups, splash, toolbar buttons) is --background-2,
+   and the pure black behind everything is --background-1.
+========================================================= */
+
+:root {
+  /* ---- backgrounds (darkest to lightest) ---- */
+  --background-1: #000000;         /* page backdrop, behind everything */
+
+  --background-2: #0f141e;         /* translucent surfaces - info panel, popups, splash card, toolbar buttons */
+  --background-2-rgb: 15, 20, 30;  /* same colour as r,g,b - used with rgba() for the translucency */
+
+  --background-3: #172030;         /* solid navy - info panel header, popup close button */
+
+  --background-4: #3a4454;         /* secondary surface - title bar pill, scene list */
+  --background-4-rgb: 58, 68, 84;
+
+  /* ---- highlights / accents ---- */
+  --highlight-1: #3a7ad9;          /* primary call-to-action, e.g. splash "start" button */
+  --highlight-1-hover: #4a8ae6;
+
+  --highlight-2: #7fb2ff;          /* in-text links (.scene-link) */
+  --highlight-2-hover: #a7cbff;
+
+  /* ---- text & neutral overlays ---- */
+  --text-colour: #ffffff;
+  --text-colour-rgb: 255, 255, 255; /* used for translucent borders / hover washes */
+
+  --shadow-colour-rgb: 0, 0, 0;     /* used for drop shadows / dark overlays */
+}
+
 /* =========================
    GLOBAL RESET / BASE
 ========================= */
@@ -6,7 +44,7 @@
   box-sizing: border-box;
   user-select: none;
   -webkit-user-select: none;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(var(--shadow-colour-rgb), 0);
 }
 
 html, body {
@@ -15,8 +53,8 @@ html, body {
   margin: 0;
   overflow: hidden;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background: #000;
-  color: #fff;
+  background: var(--background-1);
+  color: var(--text-colour);
 }
 
 /* =========================
@@ -54,7 +92,7 @@ html, body {
   width: 340px;
   max-width: 36vw;
 
-  background: rgba(15,20,30,0.92);
+  background: rgba(var(--background-2-rgb), 0.92);
   backdrop-filter: blur(10px);
 
   /* Header / scrollable content / nav footer stacked as three regions,
@@ -65,7 +103,7 @@ html, body {
   min-height: 0;
 
   z-index: 10;
-  border-left: 1px solid rgba(255,255,255,0.08);
+  border-left: 1px solid rgba(var(--text-colour-rgb), 0.08);
 
   transition: flex-basis 0.35s ease, width 0.35s ease;
 }
@@ -96,7 +134,7 @@ body.info-collapsed #infoPanel {
   text-align: center;
 
   padding: 24px 40px 18px;
-  background: #172030;
+  background: var(--background-3);
 }
 
 #infoHeader #panelLogo {
@@ -178,14 +216,14 @@ body.info-collapsed #infoPanel {
 /* In-text links to other scenes, e.g.
    <a class="scene-link" data-target="6-the-needles">The Needles</a> */
 #infoContent .scene-link {
-  color: #7fb2ff;
+  color: var(--highlight-2);
   text-decoration: underline;
   text-underline-offset: 2px;
   cursor: pointer;
 }
 
 #infoContent .scene-link:hover {
-  color: #a7cbff;
+  color: var(--highlight-2-hover);
 }
 
 /* =========================
@@ -200,7 +238,7 @@ body.info-collapsed #infoPanel {
 
   z-index: 100;
 
-  background: rgba(0,0,0,0.6);
+  background: rgba(var(--shadow-colour-rgb), 0.6);
   color: white;
   border: none;
   border-radius: 4px;
@@ -219,20 +257,82 @@ body.info-collapsed #infoPanel {
   left: 15px;
 
   width: 380px;
-  height: 190px;
 
   z-index: 90;
 
-  background: #000;
+  background: var(--background-1);
   border-radius: 8px;
   overflow: hidden;
 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 30px rgba(var(--shadow-colour-rgb), 0.5);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.embed-box-header {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  padding: 8px 8px 8px 12px;
+  background: var(--background-3);
+}
+
+.embed-box-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-colour);
+}
+
+#embedToggle {
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(var(--text-colour-rgb), 0.08);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#embedToggle:hover {
+  background: rgba(var(--text-colour-rgb), 0.18);
+}
+
+#embedToggle .icon {
+  width: 16px;
+  height: 16px;
+  display: none;
+  pointer-events: none;
+}
+
+#embedToggle .icon.off { display: block; }
+.embed-box.collapsed #embedToggle .icon.off { display: none; }
+.embed-box.collapsed #embedToggle .icon.on { display: block; }
+
+.embed-box-body {
+  flex: 1 1 auto;
+  height: 190px;
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+
+/* Collapsed: header stays, body height collapses to nothing rather than
+   the whole card disappearing, so it's still there to reopen. */
+.embed-box.collapsed .embed-box-body {
+  height: 0;
 }
 
 .embed-box iframe {
   width: 100%;
-  height: 100%;
+  height: 190px;
   border: 0;
 }
 
@@ -245,30 +345,31 @@ body.info-collapsed #infoPanel {
   display: flex;
   gap: 10px;
   padding: 12px 18px 18px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  background: rgba(15,20,30,0.92);
+  border-top: 1px solid rgba(var(--text-colour-rgb), 0.1);
+  background: rgba(var(--background-2-rgb), 0.92);
 }
 
 .info-nav-button {
   flex: 1;
   min-width: 0;
+  min-height: 54px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
-  padding: 9px 10px;
-  border: 1px solid rgba(255,255,255,0.15);
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid rgba(var(--text-colour-rgb), 0.15);
   border-radius: 6px;
-  background: rgba(255,255,255,0.05);
-  color: #fff;
+  background: rgba(var(--text-colour-rgb), 0.05);
+  color: var(--text-colour);
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   text-align: left;
   transition: background 0.2s ease, opacity 0.2s ease;
 }
 
 .info-nav-button:hover:not(:disabled) {
-  background: rgba(255,255,255,0.12);
+  background: rgba(var(--text-colour-rgb), 0.12);
 }
 
 .info-nav-button:disabled,
@@ -285,27 +386,31 @@ body.info-collapsed #infoPanel {
 
 /* Column of label + optional manually-written subtitle, e.g.
    "Next" / "Geology continued" - the subtitle is set per scene via
-   nextSceneSubtitle / previousSceneSubtitle in data.js */
+   nextSceneSubtitle / previousSceneSubtitle in data.js.
+
+   Text no longer truncates with an ellipsis - index.js (fitNavText)
+   shrinks the font-size to fit instead, so overflow/text-overflow here
+   are just a safety net for the rare case it hits the size floor. */
 .info-nav-text {
   display: flex;
   flex-direction: column;
-  gap: 1px;
+  gap: 2px;
   min-width: 0;
   flex: 1 1 auto;
 }
 
 .info-nav-label {
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: clip;
   white-space: nowrap;
 }
 
 .info-nav-subtitle {
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: clip;
   white-space: nowrap;
-  font-size: 11px;
-  color: rgba(255,255,255,0.6);
+  font-size: 12px;
+  color: rgba(var(--text-colour-rgb), 0.6);
 }
 
 .info-nav-subtitle.empty,
@@ -331,13 +436,13 @@ body.info-collapsed #infoPanel {
   align-items: center;
   justify-content: center;
 
-  background: rgba(15,20,30,0.75);
+  background: rgba(var(--background-2-rgb), 0.75);
   border-radius: 6px;
   cursor: pointer;
 }
 
 #sceneListToggle:hover {
-  background: rgba(15,20,30,0.95);
+  background: rgba(var(--background-2-rgb), 0.95);
 }
 
 #sceneListToggle .icon {
@@ -377,14 +482,14 @@ body.info-collapsed #infoPanel {
 }
 
 #sceneList .scenes {
-  background: rgba(58,68,84,0.9);
+  background: rgba(var(--background-4-rgb), 0.9);
 }
 
 #sceneList .scene {
   display: block;
   text-decoration: none;
-  color: #fff;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  color: var(--text-colour);
+  border-top: 1px solid rgba(var(--text-colour-rgb), 0.1);
 }
 
 #sceneList .scene:first-child {
@@ -397,12 +502,107 @@ body.info-collapsed #infoPanel {
 }
 
 #sceneList .scene:hover {
-  background: rgba(255,255,255,0.12);
+  background: rgba(var(--text-colour-rgb), 0.12);
 }
 
 #sceneList .scene.current {
-  background: rgba(255,255,255,0.2);
+  background: rgba(var(--text-colour-rgb), 0.2);
   font-weight: bold;
+}
+
+/* =========================
+   ICON KEY (same pop-out pattern as the scene list, one slot to
+   the right of it)
+========================= */
+
+#iconKeyToggle {
+  position: absolute;
+  top: 10px;
+  left: 56px;
+  z-index: 110;
+
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(var(--background-2-rgb), 0.75);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#iconKeyToggle:hover {
+  background: rgba(var(--background-2-rgb), 0.95);
+}
+
+#iconKeyToggle .icon {
+  width: 20px;
+  height: 20px;
+  display: none;
+  pointer-events: none;
+}
+
+#iconKeyToggle .icon.off { display: block; }
+#iconKeyToggle.enabled .icon.off { display: none; }
+#iconKeyToggle.enabled .icon.on { display: block; }
+
+#iconKeyPanel {
+  position: absolute;
+  top: 54px;
+  left: 56px;
+
+  width: 200px;
+  max-height: 0;
+
+  overflow: hidden;
+  opacity: 0;
+
+  z-index: 60;
+  border-radius: 6px;
+  background: rgba(var(--background-4-rgb), 0.9);
+
+  transition: max-height 0.35s ease, opacity 0.25s ease;
+}
+
+#iconKeyPanel.enabled {
+  max-height: 60vh;
+  opacity: 1;
+  overflow-y: auto;
+}
+
+#iconKeyTitle {
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-bottom: 1px solid rgba(var(--text-colour-rgb), 0.1);
+}
+
+#iconKeyList {
+  padding: 6px 0;
+}
+
+.icon-key-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 14px;
+}
+
+.icon-key-image {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex: 0 0 24px;
+  border-radius: 4px;
+}
+
+.icon-key-label {
+  font-size: 13px;
+  color: var(--text-colour);
 }
 
 /* =========================
@@ -422,7 +622,7 @@ body.info-collapsed #infoPanel {
 
 #titleBar .sceneName {
   display: inline-block;
-  background: rgba(58,68,84,0.8);
+  background: rgba(var(--background-4-rgb), 0.8);
   padding: 5px 14px;
   line-height: 30px;
   border-radius: 0 0 6px 6px;
@@ -448,7 +648,7 @@ body.info-collapsed #infoPanel {
   align-items: center;
   justify-content: center;
 
-  background: rgba(15,20,30,0.75);
+  background: rgba(var(--background-2-rgb), 0.75);
   border-radius: 6px;
   cursor: pointer;
 }
@@ -458,7 +658,7 @@ body.info-collapsed #infoPanel {
 
 #autorotateToggle:hover,
 #fullscreenToggle:hover {
-  background: rgba(15,20,30,0.95);
+  background: rgba(var(--background-2-rgb), 0.95);
 }
 
 #autorotateToggle .icon,
@@ -508,13 +708,13 @@ body.fullscreen-enabled #fullscreenToggle {
   align-items: center;
   justify-content: center;
 
-  background: rgba(15,20,30,0.75);
+  background: rgba(var(--background-2-rgb), 0.75);
   border-radius: 50%;
   cursor: pointer;
 }
 
 .viewControlButton:hover {
-  background: rgba(15,20,30,0.95);
+  background: rgba(var(--background-2-rgb), 0.95);
 }
 
 .viewControlButton img {
@@ -553,7 +753,7 @@ body.fullscreen-enabled #fullscreenToggle {
   width: 100%;
   height: 100%;
   display: block;
-  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.6));
+  filter: drop-shadow(0 1px 3px rgba(var(--shadow-colour-rgb), 0.6));
 }
 
 /* video / camera (popup) hotspots */
@@ -568,7 +768,7 @@ body.fullscreen-enabled #fullscreenToggle {
   width: 100%;
   height: 100%;
   display: block;
-  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.6));
+  filter: drop-shadow(0 1px 3px rgba(var(--shadow-colour-rgb), 0.6));
 }
 
 .info-hotspot {
@@ -609,11 +809,11 @@ body.fullscreen-enabled #fullscreenToggle {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  background: rgba(15,20,30,0.96);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(var(--background-2-rgb), 0.96);
+  border: 1px solid rgba(var(--text-colour-rgb), 0.1);
   border-radius: 8px;
   padding: 10px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  box-shadow: 0 8px 24px rgba(var(--shadow-colour-rgb), 0.5);
 }
 
 .popup-header {
@@ -632,7 +832,7 @@ body.fullscreen-enabled #fullscreenToggle {
 }
 
 .popup-title {
-  color: #fff;
+  color: var(--text-colour);
   font-size: 16px;
   font-weight: 600;
   line-height: 1.2;
@@ -645,9 +845,9 @@ body.fullscreen-enabled #fullscreenToggle {
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  background: #172030;
-  border: 1px solid rgba(255,255,255,0.15);
-  color: #fff;
+  background: var(--background-3);
+  border: 1px solid rgba(var(--text-colour-rgb), 0.15);
+  color: var(--text-colour);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -670,7 +870,7 @@ body.fullscreen-enabled #fullscreenToggle {
 }
 
 .popup-caption {
-  color: #fff;
+  color: var(--text-colour);
   font-size: 13px;
   line-height: 1.4;
   padding: 8px 2px 0;
@@ -721,18 +921,23 @@ body.fullscreen-enabled #fullscreenToggle {
   body.info-collapsed #infoPanel {
     flex-basis: auto;
     min-width: 0;
-    border-left: 1px solid rgba(255,255,255,0.08);
+    border-left: 1px solid rgba(var(--text-colour-rgb), 0.08);
   }
 
   .embed-box {
     width: 260px;
+  }
+
+  .embed-box-body,
+  .embed-box iframe {
     height: 140px;
   }
 
   .viewControlButton,
   #autorotateToggle,
   #fullscreenToggle,
-  #sceneListToggle {
+  #sceneListToggle,
+  #iconKeyToggle {
     transform: scale(0.85);
   }
 }
@@ -783,10 +988,10 @@ body:not(.splash-open):not(.splash-closed) #splashScreen {
   display: flex;
   flex-direction: column;
 
-  background: rgba(15,20,30,0.97);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(var(--background-2-rgb), 0.97);
+  border: 1px solid rgba(var(--text-colour-rgb), 0.1);
   border-radius: 10px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  box-shadow: 0 20px 60px rgba(var(--shadow-colour-rgb), 0.6);
   overflow: hidden;
 }
 
@@ -800,16 +1005,16 @@ body:not(.splash-open):not(.splash-closed) #splashScreen {
   height: 28px;
   border-radius: 50%;
 
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
-  color: #fff;
+  background: rgba(var(--text-colour-rgb), 0.08);
+  border: 1px solid rgba(var(--text-colour-rgb), 0.15);
+  color: var(--text-colour);
   font-size: 15px;
   line-height: 1;
   cursor: pointer;
 }
 
 #splashClose:hover {
-  background: rgba(255,255,255,0.18);
+  background: rgba(var(--text-colour-rgb), 0.18);
 }
 
 #splashScroll {
@@ -831,7 +1036,7 @@ body:not(.splash-open):not(.splash-closed) #splashScreen {
 #splashBody {
   font-size: 15px;
   line-height: 1.6;
-  color: rgba(255,255,255,0.9);
+  color: rgba(var(--text-colour-rgb), 0.9);
 }
 
 #splashBody p {
@@ -853,7 +1058,7 @@ body:not(.splash-open):not(.splash-closed) #splashScreen {
 }
 
 #splashCredits {
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(var(--text-colour-rgb), 0.1);
   padding: 20px 0 8px;
   text-align: center;
 }
@@ -863,14 +1068,14 @@ body:not(.splash-open):not(.splash-closed) #splashScreen {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: rgba(255,255,255,0.6);
+  color: rgba(var(--text-colour-rgb), 0.6);
   margin: 0 0 10px;
 }
 
 #splashCreditsBody {
   font-size: 13px;
   line-height: 1.5;
-  color: rgba(255,255,255,0.75);
+  color: rgba(var(--text-colour-rgb), 0.75);
   margin: 0 0 14px;
 }
 
@@ -890,8 +1095,8 @@ body:not(.splash-open):not(.splash-closed) #splashScreen {
 
   border: none;
   border-radius: 6px;
-  background: #3a7ad9;
-  color: #fff;
+  background: var(--highlight-1);
+  color: var(--text-colour);
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
@@ -900,7 +1105,7 @@ body:not(.splash-open):not(.splash-closed) #splashScreen {
 }
 
 #splashStart:hover {
-  background: #4a8ae6;
+  background: var(--highlight-1-hover);
 }
 
 @media (max-width: 500px) {

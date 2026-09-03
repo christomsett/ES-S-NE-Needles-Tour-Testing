@@ -730,7 +730,7 @@
   }
 
   /* ---------------- DEBUG COORDINATES ---------------- */
-
+  /*
   var coordsDisplay = document.createElement('div');
   coordsDisplay.id = 'coordsDisplay';
   
@@ -763,9 +763,10 @@
   }
   
   setInterval(updateCoordinates, 100);
-
+  */
+  
   /* ---------------- CENTRE ALIGNMENT DOT ---------------- */
-
+  /*
   var centreDot = document.createElement('div');
   centreDot.id = 'centreAlignmentDot';
   
@@ -781,7 +782,8 @@
   centreDot.style.pointerEvents = 'none';
   
   document.body.appendChild(centreDot);
-
+  */
+  
   /* ---------------- SPLASH SCREEN ----------------
      Shown once over the top of the tour on startup. All of its
      content comes from data.settings.splash in data.js - edit that

@@ -182,6 +182,52 @@ body.info-collapsed #infoPanel {
 }
 
 /* =========================
+   SCROLLBARS
+   Applies to every scrollable panel: the narrative text, the scene
+   list, the icon key panel, and the splash screen. Uses the palette
+   variables, so it stays on-theme if the colours change.
+========================= */
+
+#infoContent,
+#sceneList.enabled,
+#iconKeyPanel.enabled,
+#splashScroll {
+  scrollbar-width: thin;                                            /* Firefox */
+  scrollbar-color: rgba(var(--text-colour-rgb), 0.25) transparent;  /* Firefox: thumb, track */
+}
+
+#infoContent::-webkit-scrollbar,
+#sceneList.enabled::-webkit-scrollbar,
+#iconKeyPanel.enabled::-webkit-scrollbar,
+#splashScroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+#infoContent::-webkit-scrollbar-track,
+#sceneList.enabled::-webkit-scrollbar-track,
+#iconKeyPanel.enabled::-webkit-scrollbar-track,
+#splashScroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#infoContent::-webkit-scrollbar-thumb,
+#sceneList.enabled::-webkit-scrollbar-thumb,
+#iconKeyPanel.enabled::-webkit-scrollbar-thumb,
+#splashScroll::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--text-colour-rgb), 0.25);
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: content-box; /* shrinks the visible thumb slightly, so it doesn't look chunky */
+}
+
+#infoContent::-webkit-scrollbar-thumb:hover,
+#sceneList.enabled::-webkit-scrollbar-thumb:hover,
+#iconKeyPanel.enabled::-webkit-scrollbar-thumb:hover,
+#splashScroll::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(var(--text-colour-rgb), 0.4);
+}
+
+/* =========================
    INFO CONTENT TYPOGRAPHY
 ========================= */
 

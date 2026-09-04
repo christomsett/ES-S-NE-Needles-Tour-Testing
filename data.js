@@ -1131,11 +1131,19 @@ var APP_DATA = {
           "image": "",
         },
         {
-          "yaw": 0.63,
+          "yaw": -0.63,
           "pitch": 0.32,
           "category": "heritage",
           "title": "Old Battery Entrance",
           "text": "The Old Battery was accessed over a small bridge which enabled the site to be secured.",
+          "image": "",
+        },
+        {
+          "yaw": 0.63,
+          "pitch": 0.32,
+          "category": "geomorphology",
+          "title": "Crumbling Infrastructure",
+          "text": "This old retaining wall is seeing the strain of the natural processes here, leading to part of the wall breaking off.",
           "image": "",
         },
         {
@@ -1183,9 +1191,9 @@ var APP_DATA = {
               feel free to jump around the scenes, revisitng any spots you choose, and getting to know this area a little better!
             </p>
 
-            <p>
+            <h3>
               Thanks for joining us!
-            </p>
+            </h3>
           `
         }
       ]

@@ -1066,7 +1066,10 @@ var APP_DATA = {
       "name": "The Old Battery",
       "listNumber": 8, /* MANUAL - shown as the number prefix in the left-hand scene list, independent of previousSceneSubtitle/nextSceneSubtitle */
       "listLabel": "Heritage: The Old Battery", /* MANUAL - shown as the text in the left-hand scene list, e.g. "4. The Old Battery" - can read completely differently from the scene's own "name" or its next/previous subtitles */
-      "previousScene": "7-needles-south-facing-cliffs",
+      "previousScene": "5-south-cliff-from-the-ground",
+      "nextScene": "0-home-viewpoint",
+      "previousSceneSubtitle": "Vegetation",
+      "nextSceneSubtitle": "Home",
       "levels": [
         {
           "tileSize": 256,
@@ -1118,7 +1121,74 @@ var APP_DATA = {
           "target": "2-alum-bay-from-the-air"
         }
       ],
-      "hotspots": []
+      "hotspots": [
+        {
+          "yaw": 0.33,
+          "pitch": -0.10,
+          "category": "heritage",
+          "title": "The New Battery",
+          "text": "The New Battery replaced the Old Battery in 1895 due to the deteriation at the old site.<br><br>You can see the New battery more clearly from our home viewpoint.",
+          "image": "",
+        },
+        {
+          "yaw": 0.63,
+          "pitch": 0.32,
+          "category": "heritage",
+          "title": "Old Battery Entrance",
+          "text": "The Old Battery was accessed over a small bridge which enabled the site to be secured.",
+          "image": "",
+        },
+        {
+          "yaw": -2.47,
+          "pitch": 0.22,
+          "category": "heritage",
+          "title": "Gun Stations",
+          "text": "Each gun took a team of six to operate them. They were strategcally placed to cover as much of the water as possible.",
+          "image": "",
+        },
+        {
+          "yaw": -3,
+          "pitch": 0.14,
+          "category": "geomorphology",
+          "title": "Erosion",
+          "text": "Continued erosion of the south facing cliff led to the deteriation of the Old Battery, prompting its move. The cliff face drops off steeply here within the limits of the original Old Battery footprint.",
+          "image": "",
+        },
+        {
+          "yaw": -2.89,
+          "pitch": 0.38,
+          "category": "heritage",
+          "title": "Below the Ground",
+          "text": "The tunnels beneath the site are still usable today, and lead to the old lookout point which was used to spot enemy ships.",
+          "image": "",
+        },
+      ],
+      "narrative": [
+        {
+          "title": "The Old Battery",
+          "body": `
+            <p>
+              This is our final stop on the tour, showcasing The Needles Old Battery, which has stood on the chalk headland since the 1860s.
+              From here you can see the main positions used to defend the English Channel and Solent. 
+            </p>
+
+            <p>
+              The chalk headland made an excellent vantage point due to its wide views of the English Chanel, making it easier to spot
+              enemy defences. The Old Battery was replaced with the new battery further up the hill due to fears over cliff instability
+              from gun reverberations. 
+            </p>
+
+            <p>
+              This concludes our tour of The Needles coastline. Have a look around to see some of the historical features here, and then
+              feel free to jump around the scenes, revisitng any spots you choose, and getting to know this area a little better!
+            </p>
+
+            <p>
+              Thanks for joining us!
+            </p>
+          `
+        }
+      ]
     }
   ],
   "name": "Project Title",

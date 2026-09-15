@@ -320,8 +320,9 @@ body.info-collapsed #infoPanel {
   bottom: 15px;
   left: 15px;
 
-  width: 380px;
-
+  width: var(--embed-width, 380px);
+  transition: width 0.3s ease;
+   
   z-index: 90;
 
   background: var(--background-1);
@@ -383,7 +384,7 @@ body.info-collapsed #infoPanel {
 
 .embed-box-body {
   flex: 1 1 auto;
-  height: 190px;
+  height: var(--embed-height, 190px);
   overflow: hidden;
   transition: height 0.3s ease;
 }
@@ -396,8 +397,14 @@ body.info-collapsed #infoPanel {
 
 .embed-box iframe {
   width: 100%;
-  height: 190px;
+  height: var(--embed-height, 190px);
   border: 0;
+}
+
+..expanded {
+  --embed-width: 66vw;
+  --embed-height: 66vh;
+  z-index: 200; /* sit above everything else while expanded */
 }
 
 /* Narrative previous/next navigation - sits below the scrollable
@@ -989,12 +996,8 @@ body.fullscreen-enabled #fullscreenToggle {
   }
 
   .embed-box {
-    width: 260px;
-  }
-
-  .embed-box-body,
-  .embed-box iframe {
-    height: 140px;
+     --embed-width: 260px;
+     --embed-height: 140px;
   }
 
   .viewControlButton,

@@ -37,6 +37,7 @@
 
   var embedBoxElement = document.getElementById('embedBox');
   var embedToggleElement = document.getElementById('embedToggle');
+  var embedExpandToggleElement = document.getElementById('embedExpandToggle');
 
   var infoToggle = document.getElementById('infoToggle');
   var infoClose = document.getElementById('infoClose');

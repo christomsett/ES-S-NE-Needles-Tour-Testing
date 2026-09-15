@@ -352,6 +352,37 @@ body.info-collapsed #infoPanel {
   color: var(--text-colour);
 }
 
+#embedExpandToggle {
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(var(--text-colour-rgb), 0.08);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#embedExpandToggle:hover {
+  background: rgba(var(--text-colour-rgb), 0.18);
+}
+
+#embedExpandToggle .icon {
+  width: 16px;
+  height: 16px;
+  display: none;
+  pointer-events: none;
+}
+
+#embedExpandToggle .icon.off { display: block; }
+.embed-box.expanded #embedExpandToggle .icon.off { display: none; }
+.embed-box.expanded #embedExpandToggle .icon.on { display: block; }
+
+
 #embedToggle {
   flex: 0 0 auto;
   width: 26px;

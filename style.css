@@ -432,7 +432,7 @@ body.info-collapsed #infoPanel {
   border: 0;
 }
 
-..expanded {
+.expanded {
   --embed-width: 66vw;
   --embed-height: 66vh;
   z-index: 200; /* sit above everything else while expanded */

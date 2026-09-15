@@ -883,6 +883,16 @@
     });
   }
 
+  if (embedExpandToggleElement && embedBoxElement) {
+    embedExpandToggleElement.addEventListener('click', function () {
+      var expanded = embedBoxElement.classList.toggle('expanded');
+      embedExpandToggleElement.setAttribute(
+        'aria-label',
+        expanded ? 'Shrink 3D model' : 'Expand 3D model'
+      );
+    });
+  }
+
   /* ---------------- INIT ---------------- */
 
   setupSplashScreen();

@@ -346,6 +346,12 @@ body.info-collapsed #infoPanel {
   background: var(--background-3);
 }
 
+.embed-box-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .embed-box-title {
   font-size: 13px;
   font-weight: 600;
